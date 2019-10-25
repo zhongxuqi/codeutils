@@ -31,11 +31,13 @@ var languageMap = {
     'json_utils': 'Json Utils',
     'sql_utils': 'SQL Utils',
     'golang_utils': 'GoLang Utils',
+    'string_utils': 'String Encode & Decode',
   },
   "cn": {
     'json_utils': 'Json工具',
     'sql_utils': 'SQL工具',
     'golang_utils': 'Go语言工具',
+    'string_utils': '字符串编码和解码',
   },
 }
 

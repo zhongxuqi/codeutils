@@ -37,6 +37,7 @@ export default {
   vertical-align: middle;
   color: black;
   background-color: white;
+  cursor: pointer;
 }
 
 .cu-sidebar-item:hover {

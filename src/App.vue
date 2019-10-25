@@ -3,11 +3,14 @@
     <b-row style="height:100%">
       <b-col class="cu-app-sidebar" style="padding:0rem">
         <h4 class="cu-app-sidebar-logo"><b>Code</b>Utils</h4>
-        <SideBarItem v-bind:title="textJsonUtils" icon="icon-json" iconSize="1.1" v-bind:active="mode==='json'" v-on:select="changeMode('json')"/>
-        <SideBarItem v-bind:title="textSQLUtils" icon="icon-database" iconSize="1.1" v-bind:active="mode==='sql'" v-on:select="changeMode('sql')"/>
-        <SideBarItem v-bind:title="textGoLangUtils" icon="icon-google" iconSize="1.1" v-bind:active="mode==='golang'" v-on:select="changeMode('golang')"/>
+        <SideBarItem v-bind:title="textJsonUtils" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
+        <SideBarItem v-bind:title="textSQLUtils" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
+        <SideBarItem v-bind:title="textStringUtils" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
+        <SideBarItem v-bind:title="textGoLangUtils" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
       </b-col>
-      <b-col cols="10" class="cu-app-body" style="padding:0rem">2 of 3 (wider)</b-col>
+      <b-col cols="10" class="cu-app-body" style="padding:0rem">
+        <router-view></router-view>
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -25,14 +28,16 @@ export default {
     return {
       textJsonUtils: Language.getLanguageText('json_utils'),
       textSQLUtils: Language.getLanguageText('sql_utils'),
+      textStringUtils: Language.getLanguageText('string_utils'),
       textGoLangUtils: Language.getLanguageText('golang_utils'),
 
-      mode: 'json',
+      route: 'json',
     }
   },
   methods: {
-    changeMode: function(newMode) {
-      this.mode = newMode
+    changeRoute: function(newRoute) {
+      this.route = newRoute
+      this.$router.push(this.route)
     },
   },
 }
