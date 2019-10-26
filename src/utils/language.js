@@ -32,12 +32,22 @@ var languageMap = {
     'sql_utils': 'SQL Utils',
     'golang_utils': 'GoLang Utils',
     'string_utils': 'String Encode & Decode',
+    'input_json_hint': 'Please input json...',
+    'json_format': 'Json Format',
+    'json_compress': 'Json Compress',
+    'json_escape': 'Json Escape',
+    'json_unescape': 'Json Unescape',
   },
   "cn": {
     'json_utils': 'Json工具',
     'sql_utils': 'SQL工具',
     'golang_utils': 'Go语言工具',
     'string_utils': '字符串编码和解码',
+    'input_json_hint': '请输入Json...',
+    'json_format': 'Json格式化',
+    'json_compress': 'Json压缩',
+    'json_escape': 'Json转义',
+    'json_unescape': 'Json去转义',
   },
 }
 
