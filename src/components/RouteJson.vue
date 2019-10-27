@@ -7,19 +7,22 @@
         v-bind:placeholder="textInputJsonHint"
         v-bind:value="jsonCell.value"
         no-resize
+        v-on:input="onInput($event, index)"
       ></b-form-textarea>
       <div class="cu-json-form-actions">
-        <div class="cu-json-form-actions-item">
-          <b-button variant="outline-primary">{{textJsonFormat}}</b-button>
-        </div>
-        <div class="cu-json-form-actions-item">
-          <b-button variant="outline-primary">{{textJsonCompress}}</b-button>
-        </div>
-        <div class="cu-json-form-actions-item">
-          <b-button variant="outline-primary">{{textJsonEscape}}</b-button>
-        </div>
-        <div class="cu-json-form-actions-item">
-          <b-button variant="outline-primary">{{textJsonUnescape}}</b-button>
+        <div class="cu-json-form-actions-list">
+          <div class="cu-json-form-actions-item">
+            <b-button variant="outline-primary" :pressed="jsonCell.action=='formatJson'" v-on:click="onActionChange(index, 'formatJson')">{{textJsonFormat}}</b-button>
+          </div>
+          <div class="cu-json-form-actions-item">
+            <b-button variant="outline-primary" :pressed="jsonCell.action=='compressJson'" v-on:click="onActionChange(index, 'compressJson')">{{textJsonCompress}}</b-button>
+          </div>
+          <div class="cu-json-form-actions-item">
+            <b-button variant="outline-primary">{{textJsonEscape}}</b-button>
+          </div>
+          <div class="cu-json-form-actions-item">
+            <b-button variant="outline-primary">{{textJsonUnescape}}</b-button>
+          </div>
         </div>
       </div>
     </div>
@@ -36,6 +39,7 @@
 
 <script>
 import Language from '../utils/language'
+import Action from '../utils/Action'
 
 export default {
   name: 'RouterJson',
@@ -54,7 +58,43 @@ export default {
     }
   },
   methods: {
-
+    onInput: function(value, index) {
+      var jsonCells = [...this.jsonCells]
+      jsonCells[index].value = value
+      this.refreshValues(jsonCells, index)
+      this.jsonCells = jsonCells
+    },
+    onActionChange(index, newAction) {
+      var jsonCells = [...this.jsonCells]
+      jsonCells[index].action = newAction
+      this.refreshValues(jsonCells, index)
+      this.jsonCells = jsonCells
+    },
+    refreshValues: function(jsonCells, index) {
+      for (var i=index + 1;i<jsonCells.length;i++) {
+        if (jsonCells[i-1].action == "") break
+        if (jsonCells[i-1].value == "") break
+        try {
+          jsonCells[i].value = Action.do(jsonCells[index].value, jsonCells[index].action)
+        } catch (e) {
+          jsonCells[i].value = e.message
+          break
+        }
+      }
+      if (index == jsonCells.length - 1) {
+        if (jsonCells[index].action == "") return
+        var actionRet = ''
+        try {
+          actionRet = Action.do(jsonCells[index].value, jsonCells[index].action)
+        } catch (e) {
+          actionRet = e.message
+        }
+        jsonCells.push({
+          value: actionRet,
+          action: '',
+        })
+      }
+    }
   },
 }
 </script>
@@ -66,31 +106,37 @@ export default {
   width: 100%;
   height: 100vh;
   overflow-x: scroll;
+  white-space: nowrap;
+  overflow-y: hidden;
 }
 
 .cu-json-form-cell {
-  float: left;
+  display: inline-block;
+  height: 100%;
 }
 
 .cu-json-form-textarea {
   width: 30rem;
   height: 100% !important;
-  float: left;
+  display: inline-block;
 }
 
 .cu-json-form-actions {
-  float: left;
+  display: inline-block;
+  height: 100%;
+  margin: 0rem 2rem;
+  vertical-align: top;
+}
+
+.cu-json-form-actions-list {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content:center;
   align-items:Center;
-  box-sizing: border-box;
-  margin: 0rem 2rem;
 }
 
 .cu-json-form-actions-item {
-  list-style-type: none;
   padding: 0rem;
   margin-bottom: 2rem;
 }
