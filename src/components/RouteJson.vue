@@ -17,10 +17,10 @@
             <b-button variant="outline-primary" :pressed="jsonCell.action=='compressJson'" v-on:click="onActionChange(index, 'compressJson')">{{textJsonCompress}}</b-button>
           </div>
           <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary">{{textJsonEscape}}</b-button>
+            <b-button variant="outline-primary" :pressed="jsonCell.action=='escapeJson'" v-on:click="onActionChange(index, 'escapeJson')">{{textJsonEscape}}</b-button>
           </div>
           <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary">{{textJsonUnescape}}</b-button>
+            <b-button variant="outline-primary" :pressed="jsonCell.action=='unescapeJson'" v-on:click="onActionChange(index, 'unescapeJson')">{{textJsonUnescape}}</b-button>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default {
           name: 'javascript',
           json: true,
         },
-        readOnly: true,
+        readOnly: 'nocursor',
       },
     }
   },
