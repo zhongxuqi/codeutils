@@ -1,14 +1,13 @@
 <template>
   <form class="cu-json-form clearfix" autocomplete="off">
     <div class="clearfix cu-json-form-cell" style="height:100%" v-for="(jsonCell, index) in jsonCells" :key='index'>
-      <b-form-textarea
-        id="textarea-default"
-        class="cu-json-form-textarea"
-        v-bind:placeholder="textInputJsonHint"
-        v-bind:value="jsonCell.value"
-        no-resize
-        v-on:input="onInput($event, index)"
-      ></b-form-textarea>
+      <div class="cu-json-form-textarea" v-bind:class="{'cu-errormsg':jsonCell.errmsg!=''}">
+        <codemirror
+          v-bind:options="codeMirrorOptions"
+          v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
+          v-on:input="onInput($event, index)"
+        ></codemirror>
+      </div>
       <div class="cu-json-form-actions">
         <div class="cu-json-form-actions-list">
           <div class="cu-json-form-actions-item">
@@ -27,12 +26,12 @@
       </div>
     </div>
     <div class="clearfix cu-json-form-cell" style="height:100%">
-      <b-form-textarea
-        id="textarea-default"
-        class="cu-json-form-textarea"
-        no-resize
-        disabled
-      ></b-form-textarea>
+      <div class="cu-json-form-textarea disable" style="margin-right:1rem">
+        <codemirror
+          v-bind:options="codeMirrorOptionsReadOnly"
+          style="background-color:grey"
+        ></codemirror>
+      </div>
     </div>
   </form>
 </template>
@@ -54,7 +53,24 @@ export default {
       jsonCells: [{
         value: '',
         action: '',
+        errmsg: '',
       }],
+
+      codeMirrorOptions: {
+        mode: {
+          name: 'javascript',
+          json: true,
+        },
+        lineNumbers: true,
+      },
+
+      codeMirrorOptionsReadOnly: {
+        mode: {
+          name: 'javascript',
+          json: true,
+        },
+        readOnly: true,
+      },
     }
   },
   methods: {
@@ -75,23 +91,26 @@ export default {
         if (jsonCells[i-1].action == "") break
         if (jsonCells[i-1].value == "") break
         try {
-          jsonCells[i].value = Action.do(jsonCells[index].value, jsonCells[index].action)
+          jsonCells[i].value = Action.do(jsonCells[i-1].value, jsonCells[i-1].action)
+          jsonCells[i].errmsg = ''
         } catch (e) {
-          jsonCells[i].value = e.message
+          jsonCells[i].errmsg = e.message
           break
         }
       }
       if (index == jsonCells.length - 1) {
         if (jsonCells[index].action == "") return
         var actionRet = ''
+        var errmsg = ''
         try {
           actionRet = Action.do(jsonCells[index].value, jsonCells[index].action)
         } catch (e) {
-          actionRet = e.message
+          errmsg = e.message
         }
         jsonCells.push({
           value: actionRet,
           action: '',
+          errmsg: errmsg,
         })
       }
     }
@@ -107,12 +126,13 @@ export default {
   height: 100vh;
   overflow-x: scroll;
   white-space: nowrap;
-  overflow-y: hidden;
+  vertical-align: top;
 }
 
 .cu-json-form-cell {
   display: inline-block;
   height: 100%;
+  vertical-align: top;
 }
 
 .cu-json-form-textarea {
@@ -143,5 +163,9 @@ export default {
 
 .cu-json-form-actions-item:last-child {
   margin-bottom: 0rem;
+}
+
+.cu-json-form-textarea.disable .CodeMirror {
+  background-color: #e9ecef;
 }
 </style>

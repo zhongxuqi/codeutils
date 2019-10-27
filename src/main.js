@@ -8,9 +8,13 @@ import RouteJson from './components/RouteJson';
 import RouteSQL from './components/RouteSQL';
 import RouteString from './components/RouteString';
 import RouteGolang from './components/RouteGolang';
+import CodeMirror from 'vue-codemirror-lite'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/mode/javascript/javascript'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
+Vue.use(CodeMirror)
 
 const routes = [
   { path: '/', component: RouteJson },

@@ -74,4 +74,17 @@ export default {
 .cu-app-body::-webkit-scrollbar {
   width: 0 !important;
 }
+
+.vue-codemirror-wrap {
+  height: 100%;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: 100% !important;
+}
+
+.cu-errormsg .CodeMirror {
+  color: #dc3545;
+}
 </style>
