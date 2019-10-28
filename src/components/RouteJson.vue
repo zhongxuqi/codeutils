@@ -1,5 +1,5 @@
 <template>
-  <form class="cu-json-form clearfix" autocomplete="off">
+  <form class="cu-json-form" autocomplete="off">
     <div class="clearfix cu-json-form-cell" style="height:100%" v-for="(jsonCell, index) in jsonCells" :key='index'>
       <div class="cu-json-form-textarea" v-bind:class="{'cu-errormsg':jsonCell.errmsg!=''}">
         <codemirror

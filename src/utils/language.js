@@ -37,6 +37,8 @@ var languageMap = {
     'json_compress': 'Json Compress',
     'json_escape': 'Json Escape',
     'json_unescape': 'Json Unescape',
+    'sql_format': 'SQL Format',
+    'sql_compress': 'SQL Compress',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -48,6 +50,8 @@ var languageMap = {
     'json_compress': 'Json压缩',
     'json_escape': 'Json转义',
     'json_unescape': 'Json去转义',
+    'sql_format': 'SQL格式化',
+    'sql_compress': 'SQL压缩',
   },
 }
 
