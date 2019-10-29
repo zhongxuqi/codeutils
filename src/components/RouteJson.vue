@@ -58,7 +58,7 @@ export default {
 
       codeMirrorOptions: {
         mode: {
-          name: 'javascript',
+          name: 'text/javascript',
           json: true,
         },
         lineNumbers: true,
@@ -66,7 +66,7 @@ export default {
 
       codeMirrorOptionsReadOnly: {
         mode: {
-          name: 'javascript',
+          name: 'text/javascript',
           json: true,
         },
         readOnly: 'nocursor',

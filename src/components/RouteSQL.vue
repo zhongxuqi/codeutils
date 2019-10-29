@@ -1,20 +1,20 @@
 <template>
   <form class="cu-sql-form" autocomplete="off">
-    <div class="clearfix cu-sql-form-cell" style="height:100%" v-for="(jsonCell, index) in jsonCells" :key='index'>
-      <div class="cu-sql-form-textarea" v-bind:class="{'cu-errormsg':jsonCell.errmsg!=''}">
+    <div class="clearfix cu-sql-form-cell" style="height:100%" v-for="(textareaCell, index) in textareaCells" :key='index'>
+      <div class="cu-sql-form-textarea" v-bind:class="{'cu-errormsg':textareaCell.errmsg!=''}">
         <codemirror
           v-bind:options="codeMirrorOptions"
-          v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
+          v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
           v-on:input="onInput($event, index)"
         ></codemirror>
       </div>
       <div class="cu-sql-form-actions">
         <div class="cu-sql-form-actions-list">
           <div class="cu-sql-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='formatSql'" v-on:click="onActionChange(index, 'formatSql')">{{textSqlFormat}}</b-button>
+            <b-button variant="outline-primary" :pressed="textareaCell.action=='formatSql'" v-on:click="onActionChange(index, 'formatSql')">{{textSqlFormat}}</b-button>
           </div>
           <div class="cu-sql-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='compressSql'" v-on:click="onActionChange(index, 'compressSql')">{{textSqlCompress}}</b-button>
+            <b-button variant="outline-primary" :pressed="textareaCell.action=='compressSql'" v-on:click="onActionChange(index, 'compressSql')">{{textSqlCompress}}</b-button>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@ export default {
       textSqlFormat: Language.getLanguageText('sql_format'),
       textSqlCompress: Language.getLanguageText('sql_compress'),
 
-      jsonCells: [{
+      textareaCells: [{
         value: '',
         action: '',
         errmsg: '',
@@ -66,39 +66,39 @@ export default {
   },
   methods: {
     onInput: function(value, index) {
-      var jsonCells = [...this.jsonCells]
-      jsonCells[index].value = value
-      this.refreshValues(jsonCells, index)
-      this.jsonCells = jsonCells
+      var textareaCells = [...this.textareaCells]
+      textareaCells[index].value = value
+      this.refreshValues(textareaCells, index)
+      this.textareaCells = textareaCells
     },
     onActionChange(index, newAction) {
-      var jsonCells = [...this.jsonCells]
-      jsonCells[index].action = newAction
-      this.refreshValues(jsonCells, index)
-      this.jsonCells = jsonCells
+      var textareaCells = [...this.textareaCells]
+      textareaCells[index].action = newAction
+      this.refreshValues(textareaCells, index)
+      this.textareaCells = textareaCells
     },
-    refreshValues: function(jsonCells, index) {
-      for (var i=index + 1;i<jsonCells.length;i++) {
-        if (jsonCells[i-1].action == "") break
-        if (jsonCells[i-1].value == "") break
+    refreshValues: function(textareaCells, index) {
+      for (var i=index + 1;i<textareaCells.length;i++) {
+        if (textareaCells[i-1].action == "") break
+        if (textareaCells[i-1].value == "") break
         try {
-          jsonCells[i].value = Action.do(jsonCells[i-1].value, jsonCells[i-1].action)
-          jsonCells[i].errmsg = ''
+          textareaCells[i].value = Action.do(textareaCells[i-1].value, textareaCells[i-1].action)
+          textareaCells[i].errmsg = ''
         } catch (e) {
-          jsonCells[i].errmsg = e.message
+          textareaCells[i].errmsg = e.message
           break
         }
       }
-      if (index == jsonCells.length - 1) {
-        if (jsonCells[index].action == "") return
+      if (index == textareaCells.length - 1) {
+        if (textareaCells[index].action == "") return
         var actionRet = ''
         var errmsg = ''
         try {
-          actionRet = Action.do(jsonCells[index].value, jsonCells[index].action)
+          actionRet = Action.do(textareaCells[index].value, textareaCells[index].action)
         } catch (e) {
           errmsg = e.message
         }
-        jsonCells.push({
+        textareaCells.push({
           value: actionRet,
           action: '',
           errmsg: errmsg,

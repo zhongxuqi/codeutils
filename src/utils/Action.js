@@ -1,5 +1,6 @@
 import JsonUtils from './JsonUtils'
 import SqlUtils from './SqlUtils'
+import GoUtils from './GoUtils'
 
 export default {
   do: function(value, action) {
@@ -16,6 +17,10 @@ export default {
         return SqlUtils.formatSql(value)
       case "compressSql":
         return SqlUtils.compressSql(value)
+      case "jsonToGolang":
+        var res = GoUtils.jsonToGo(value, undefined, false)
+        if (typeof res.error === 'string' && res.error != '') throw res.error
+        return res.go
     }
     return value
   },

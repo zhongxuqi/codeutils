@@ -12,6 +12,7 @@ import CodeMirror from 'vue-codemirror-lite'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/sql/sql'
+import 'codemirror/mode/go/go'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)

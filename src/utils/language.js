@@ -39,6 +39,7 @@ var languageMap = {
     'json_unescape': 'Json Unescape',
     'sql_format': 'SQL Format',
     'sql_compress': 'SQL Compress',
+    'json_to_golang': 'Json to Golang',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -52,6 +53,7 @@ var languageMap = {
     'json_unescape': 'Json去转义',
     'sql_format': 'SQL格式化',
     'sql_compress': 'SQL压缩',
+    'json_to_golang': 'Json转Golang',
   },
 }
 
