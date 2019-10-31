@@ -22,21 +22,6 @@ var escapeMate = [{
 }]
 
 var unescapeMate = [{
-  from: '\\b',
-  to: '\b',
-}, {
-  from: '\\t',
-  to: '\t',
-}, {
-  from: '\\n',
-  to: '\n',
-}, {
-  from: '\\f',
-  to: '\f',
-}, {
-  from: '\\r',
-  to: '\r',
-}, {
   from: '\\"',
   to: '"',
 }, {
