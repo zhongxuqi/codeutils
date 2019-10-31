@@ -21,6 +21,8 @@ export default {
         var res = GoUtils.jsonToGo(value, undefined, false)
         if (typeof res.error === 'string' && res.error != '') throw res.error
         return res.go
+      case "sqlToGolang":
+        return GoUtils.sqlToGolang(value)
     }
     return value
   },

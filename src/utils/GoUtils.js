@@ -334,6 +334,90 @@ function jsonToGo(json, typename, flatten = true) {
 	}
 }
 
+function sqlToGolang(val) {
+  if (!val) {
+      this.structContent = ''
+      return
+  }
+  var res = val.match(/`[\w_]+`\s+[\w_()]+(\s+|,)/g)
+  if (!res) {
+      this.structContent = 'invalid sql'
+      return
+  }
+  var types = {
+    'tinyint': 'int64',
+    'smallint': 'int64',
+    'int': 'int64',
+    'mediumint': 'int64',
+    'bigint': 'int64',
+    'float': 'float64',
+    'double': 'float64',
+    'decimal': 'float64',
+    'char': 'string',
+    'varchar': 'string',
+    'text': 'string',
+    'mediumtext': 'string',
+    'longtext': 'string',
+    'time': 'time.Time',
+    'date': 'time.Time',
+    'datetime': 'time.Time',
+    'timestramp': 'int64',
+    'enum': 'string',
+    'set': 'string',
+    'blob': 'string' 
+  }
+  var structResult = 'type '
+  for (var i = 0, len = res.length; i < len; i++) {
+      var field = res[i].match(/`(.+)`\s+(tinyint|smallint|int|mediumint|bigint|float|double|decimal|varchar|char|text|mediumtext|longtext|datetime|time|date|enum|set|blob)?/)
+      if (i == 0) {   // 第一个字段为数据表名称
+          if (field && field[1] != undefined && field[2] == undefined) {
+              var tbName = titleCase(field[1])
+              structResult += tbName + ' struct {'
+              continue
+          } else {
+              return
+          }
+      } else {  // 数据表字段
+          if (field && field[1] != undefined && field[2] != undefined) {
+              if (types[field[2]] != undefined) {
+                  var fieldName = titleCase(field[1])
+                  var fieldType = types[field[2]]
+                  var fieldJsonName = field[1].toLowerCase()
+                  if (fieldName.toLowerCase() == 'id') {
+                      fieldName = 'ID'
+                  }
+                  structResult += '\n\t' + fieldName + ' ' + fieldType + ' '
+                  var structArr = []
+                  structArr.push('gorm:"column:'+ fieldJsonName +'"')
+                  structArr.push('json:"' + fieldJsonName + '"')
+                  structArr.push('form:"' + fieldJsonName + '"')
+                  if (structArr.length > 0) {
+                      structResult += '`'+structArr.join(' ')+'`'
+                  }
+              } else {
+                  continue
+              }
+          } else {
+              continue
+          }
+      }
+  }
+  structResult += '\n}'
+  return structResult
+}
+
+function titleCase(str) {
+  var array = str.toLowerCase().split("_");
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length <= 0) continue
+    array[i] = array[i][0].toUpperCase() + array[i].substring(1, array[i].length);
+  }
+  var string = array.join("");
+
+  return string;
+}
+
 export default {
   jsonToGo: jsonToGo,
+  sqlToGolang: sqlToGolang,
 }

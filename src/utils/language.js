@@ -40,6 +40,7 @@ var languageMap = {
     'sql_format': 'SQL Format',
     'sql_compress': 'SQL Compress',
     'json_to_golang': 'Json to Golang',
+    'sql_to_golang': 'SQL to Golang',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -54,6 +55,7 @@ var languageMap = {
     'sql_format': 'SQL格式化',
     'sql_compress': 'SQL压缩',
     'json_to_golang': 'Json转Golang',
+    'sql_to_golang': 'SQL转Golang',
   },
 }
 

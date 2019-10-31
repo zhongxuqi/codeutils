@@ -13,6 +13,9 @@
           <div class="cu-golang-form-actions-item">
             <b-button variant="outline-primary" :pressed="textareaCell.action=='jsonToGolang'" v-on:click="onActionChange(index, 'jsonToGolang')">{{textJsonToGolang}}</b-button>
           </div>
+          <div class="cu-golang-form-actions-item">
+            <b-button variant="outline-primary" :pressed="textareaCell.action=='sqlToGolang'" v-on:click="onActionChange(index, 'sqlToGolang')">{{textSqlToGolang}}</b-button>
+          </div>
         </div>
       </div>
     </div>
@@ -28,6 +31,7 @@ export default {
   data: function() {
     return {
       textJsonToGolang: Language.getLanguageText('json_to_golang'),
+      textSqlToGolang: Language.getLanguageText('sql_to_golang'),
 
       textareaCells: [{
         value: '',
@@ -63,6 +67,23 @@ export default {
     onActionChange(index, newAction) {
       var textareaCells = [...this.textareaCells]
       textareaCells[index].action = newAction
+      if (newAction == 'jsonToGolang') {
+        textareaCells[index].options = {
+          mode: {
+            name: 'text/javascript',
+            json: true,
+          },
+          lineNumbers: true,
+        }
+      } else if (newAction == 'sqlToGolang') {
+        textareaCells[index].options = {
+          mode: {
+            name: 'text/x-sql',
+            json: true,
+          },
+          lineNumbers: true,
+        }
+      }
       this.refreshValues(textareaCells, index)
       this.textareaCells = textareaCells
     },
