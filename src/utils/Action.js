@@ -1,6 +1,7 @@
 import JsonUtils from './JsonUtils'
 import SqlUtils from './SqlUtils'
 import GoUtils from './GoUtils'
+import StringUtils from './StringUtils'
 
 export default {
   do: function(value, action) {
@@ -23,6 +24,14 @@ export default {
         return res.go
       case "sqlToGolang":
         return GoUtils.sqlToGolang(value)
+      case "encodeURI":
+        return StringUtils.encodeURI(value)
+      case "decodeURI":
+        return StringUtils.decodeURI(value)
+      case "encodeUnicode":
+        return StringUtils.encodeUnicode(value)
+      case "decodeUnicode":
+        return StringUtils.decodeUnicode(value)
     }
     return value
   },

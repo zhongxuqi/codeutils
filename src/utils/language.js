@@ -41,6 +41,10 @@ var languageMap = {
     'sql_compress': 'SQL Compress',
     'json_to_golang': 'Json to Golang',
     'sql_to_golang': 'SQL to Golang',
+    'encode_uri': 'Encode URI',
+    'decode_uri': 'Decode URI',
+    'encode_unicode': 'Encode Unicode',
+    'decode_unicode': 'Decode Unicode',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -56,6 +60,10 @@ var languageMap = {
     'sql_compress': 'SQL压缩',
     'json_to_golang': 'Json转Golang',
     'sql_to_golang': 'SQL转Golang',
+    'encode_uri': 'URI编码',
+    'decode_uri': 'URI解码',
+    'encode_unicode': 'Unicode编码',
+    'decode_unicode': 'Unicode解码',
   },
 }
 

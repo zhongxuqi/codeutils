@@ -40,6 +40,12 @@ export default {
       this.$router.push(this.route)
     },
   },
+  mounted: function() {
+    this.route = this.$router.history.current.fullPath.split('/')[1]
+  },
+  watch: {
+    
+  },
 }
 </script>
 
