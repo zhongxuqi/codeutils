@@ -45,6 +45,8 @@ var languageMap = {
     'decode_uri': 'Decode URI',
     'encode_unicode': 'Encode Unicode',
     'decode_unicode': 'Decode Unicode',
+    'copied': 'Copied',
+    'copy_fail': 'Copy Fail',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -64,6 +66,8 @@ var languageMap = {
     'decode_uri': 'URI解码',
     'encode_unicode': 'Unicode编码',
     'decode_unicode': 'Unicode解码',
+    'copied': '复制成功',
+    'copy_fail': '复制失败',
   },
 }
 

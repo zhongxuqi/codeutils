@@ -13,10 +13,19 @@ import 'codemirror/lib/codemirror.css'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/sql/sql'
 import 'codemirror/mode/go/go'
+import VueClipboard from 'vue-clipboard2'
+import Snotify, { SnotifyPosition } from 'vue-snotify'
+import 'vue-snotify/styles/material.css'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(CodeMirror)
+Vue.use(VueClipboard)
+Vue.use(Snotify, {
+  toast: {
+    position: SnotifyPosition.rightTop
+  },
+})
 
 const routes = [
   { path: '/', component: RouteJson },

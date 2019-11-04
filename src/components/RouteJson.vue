@@ -7,6 +7,14 @@
           v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
           v-on:input="onInput($event, index)"
         ></codemirror>
+        <div class="cu-json-form-textarea-actions">
+          <b-button size="sm" variant="success" style="margin-right:0.5rem" v-on:click="copyTextarea(index)">
+            <i class="iconfont icon-copy-f" style="font-size:1rem"></i>
+          </b-button>
+          <b-button size="sm" variant="danger" v-if="jsonCells.length>1" v-on:click="closeTextarea(index)">
+            <i class="iconfont icon-close" style="font-size:1rem"></i>
+          </b-button>
+        </div>
       </div>
       <div class="cu-json-form-actions">
         <div class="cu-json-form-actions-list">
@@ -33,6 +41,7 @@
         ></codemirror>
       </div>
     </div>
+    <vue-snotify></vue-snotify>
   </form>
 </template>
 
@@ -49,6 +58,8 @@ export default {
       textJsonCompress: Language.getLanguageText('json_compress'),
       textJsonEscape: Language.getLanguageText('json_escape'),
       textJsonUnescape: Language.getLanguageText('json_unescape'),
+      textCopied: Language.getLanguageText('copied'),
+      textCopyFail: Language.getLanguageText('copy_fail'),
 
       jsonCells: [{
         value: '',
@@ -77,6 +88,7 @@ export default {
     onInput: function(value, index) {
       var jsonCells = [...this.jsonCells]
       jsonCells[index].value = value
+      jsonCells[index].errmsg = ''
       this.refreshValues(jsonCells, index)
       this.jsonCells = jsonCells
     },
@@ -113,7 +125,22 @@ export default {
           errmsg: errmsg,
         })
       }
-    }
+    },
+    copyTextarea: function(index) {
+      this.$copyText(this.jsonCells[index].value).then((function() {
+        this.$snotify.success(this.textCopied)
+      }).bind(this), (function() {
+        this.$snotify.error(this.textCopyFail)
+      }).bind(this))
+    },
+    closeTextarea: function(index) {
+      var jsonCells = []
+      for (var i=0;i<this.jsonCells.length;i++) {
+        if (i == index) continue
+        jsonCells.push(this.jsonCells[i])
+      }
+      this.jsonCells = jsonCells
+    },
   },
 }
 </script>
@@ -139,12 +166,19 @@ export default {
   width: 30rem;
   height: 100% !important;
   display: inline-block;
+  position: relative;
+}
+
+.cu-json-form-textarea-actions {
+  position: absolute;
+  top: 0rem;
+  left: 30.5rem;
 }
 
 .cu-json-form-actions {
   display: inline-block;
   height: 100%;
-  margin: 0rem 2rem;
+  padding: 0rem 2rem;
   vertical-align: top;
 }
 
