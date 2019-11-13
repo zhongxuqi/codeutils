@@ -72,7 +72,11 @@ export default {
           name: 'text/javascript',
           json: true,
         },
-        lineNumbers: true,
+        lineNumbers:true,
+        lineWrapping:true,
+        foldGutter: true,
+        gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+        lint: true,
       },
 
       codeMirrorOptionsReadOnly: {

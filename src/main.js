@@ -16,6 +16,15 @@ import 'codemirror/mode/go/go'
 import VueClipboard from 'vue-clipboard2'
 import Snotify, { SnotifyPosition } from 'vue-snotify'
 import 'vue-snotify/styles/material.css'
+import 'codemirror/addon/fold/brace-fold'
+import 'codemirror/addon/fold/foldgutter.js'
+import 'codemirror/addon/fold/foldgutter.css'
+import 'codemirror/addon/fold/foldcode'
+import 'codemirror/addon/fold/xml-fold'
+import 'codemirror/addon/fold/indent-fold'
+import 'codemirror/addon/fold/comment-fold'
+import 'codemirror/addon/edit/matchbrackets'
+import 'codemirror/addon/lint/json-lint'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
