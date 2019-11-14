@@ -127,7 +127,7 @@ export default {
 }
 
 .cu-sql-form-textarea {
-  width: 30rem;
+  width: 40rem;
   height: 100% !important;
   display: inline-block;
 }

@@ -1,21 +1,10 @@
 <template>
   <form class="cu-json-form" autocomplete="off">
     <div class="clearfix cu-json-form-cell" style="height:100%" v-for="(jsonCell, index) in jsonCells" :key='index'>
-      <div class="cu-json-form-textarea" v-bind:class="{'cu-errormsg':jsonCell.errmsg!=''}">
-        <codemirror
-          v-bind:options="codeMirrorOptions"
-          v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
-          v-on:input="onInput($event, index)"
-        ></codemirror>
-        <div class="cu-json-form-textarea-actions">
-          <b-button size="sm" variant="success" style="margin-right:0.5rem" v-on:click="copyTextarea(index)">
-            <i class="iconfont icon-copy-f" style="font-size:1rem"></i>
-          </b-button>
-          <b-button size="sm" variant="danger" v-if="jsonCells.length>1" v-on:click="closeTextarea(index)">
-            <i class="iconfont icon-close" style="font-size:1rem"></i>
-          </b-button>
-        </div>
-      </div>
+      <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="jsonCell.errmsg" 
+        v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
+        v-bind:enableClose="jsonCells.length>1"
+        v-on:textchange="onInput($event, index)" v-on:close="closeTextarea(index)"/>
       <div class="cu-json-form-actions">
         <div class="cu-json-form-actions-list">
           <div class="cu-json-form-actions-item">
@@ -34,23 +23,23 @@
       </div>
     </div>
     <div class="clearfix cu-json-form-cell" style="height:100%">
-      <div class="cu-json-form-textarea disable" style="margin-right:1rem">
-        <codemirror
-          v-bind:options="codeMirrorOptionsReadOnly"
-          style="background-color:grey"
-        ></codemirror>
-      </div>
+      <DisableFormTextarea/>
     </div>
-    <vue-snotify></vue-snotify>
   </form>
 </template>
 
 <script>
 import Language from '../utils/language'
 import Action from '../utils/Action'
+import FormTextarea from './FormTextarea'
+import DisableFormTextarea from './DisableFormTextarea'
 
 export default {
   name: 'RouterJson',
+  components: {
+    FormTextarea,
+    DisableFormTextarea,
+  },
   data: function() {
     return {
       textInputJsonHint: Language.getLanguageText('input_json_hint'),
@@ -60,6 +49,7 @@ export default {
       textJsonUnescape: Language.getLanguageText('json_unescape'),
       textCopied: Language.getLanguageText('copied'),
       textCopyFail: Language.getLanguageText('copy_fail'),
+      textFullScreen: Language.getLanguageText('full_screen'),
 
       jsonCells: [{
         value: '',
@@ -73,18 +63,9 @@ export default {
           json: true,
         },
         lineNumbers:true,
-        lineWrapping:true,
         foldGutter: true,
         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
         lint: true,
-      },
-
-      codeMirrorOptionsReadOnly: {
-        mode: {
-          name: 'text/javascript',
-          json: true,
-        },
-        readOnly: 'nocursor',
       },
     }
   },
@@ -130,13 +111,6 @@ export default {
         })
       }
     },
-    copyTextarea: function(index) {
-      this.$copyText(this.jsonCells[index].value).then((function() {
-        this.$snotify.success(this.textCopied)
-      }).bind(this), (function() {
-        this.$snotify.error(this.textCopyFail)
-      }).bind(this))
-    },
     closeTextarea: function(index) {
       var jsonCells = []
       for (var i=0;i<this.jsonCells.length;i++) {
@@ -166,19 +140,6 @@ export default {
   vertical-align: top;
 }
 
-.cu-json-form-textarea {
-  width: 30rem;
-  height: 100% !important;
-  display: inline-block;
-  position: relative;
-}
-
-.cu-json-form-textarea-actions {
-  position: absolute;
-  top: 0rem;
-  left: 30.5rem;
-}
-
 .cu-json-form-actions {
   display: inline-block;
   height: 100%;
@@ -201,9 +162,5 @@ export default {
 
 .cu-json-form-actions-item:last-child {
   margin-bottom: 0rem;
-}
-
-.cu-json-form-textarea.disable .CodeMirror {
-  background-color: #e9ecef;
 }
 </style>

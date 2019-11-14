@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import SideBarItem from './components/SideBarItem';
-import Language from './utils/language';
+import SideBarItem from './components/SideBarItem'
+import Language from './utils/language'
 
 export default {
   name: 'app',

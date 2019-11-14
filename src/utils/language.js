@@ -47,6 +47,8 @@ var languageMap = {
     'decode_unicode': 'Decode Unicode',
     'copied': 'Copied',
     'copy_fail': 'Copy Fail',
+    'full_screen': 'Full Screen',
+    'back': 'Back',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -68,6 +70,8 @@ var languageMap = {
     'decode_unicode': 'Unicode解码',
     'copied': '复制成功',
     'copy_fail': '复制失败',
+    'full_screen': '全屏',
+    'back': '返回',
   },
 }
 
