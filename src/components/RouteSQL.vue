@@ -1,13 +1,10 @@
 <template>
   <form class="cu-sql-form" autocomplete="off">
     <div class="clearfix cu-sql-form-cell" style="height:100%" v-for="(textareaCell, index) in textareaCells" :key='index'>
-      <div class="cu-sql-form-textarea" v-bind:class="{'cu-errormsg':textareaCell.errmsg!=''}">
-        <codemirror
-          v-bind:options="codeMirrorOptions"
-          v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
-          v-on:input="onInput($event, index)"
-        ></codemirror>
-      </div>
+      <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="textareaCell.errmsg" 
+        v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
+        v-bind:enableClose="textareaCell.length>1"
+        v-on:textchange="onInput($event, index)" v-on:close="closeTextarea(index)"/>
       <div class="cu-sql-form-actions">
         <div class="cu-sql-form-actions-list">
           <div class="cu-sql-form-actions-item">
@@ -20,12 +17,7 @@
       </div>
     </div>
     <div class="clearfix cu-sql-form-cell" style="height:100%">
-      <div class="cu-sql-form-textarea disable" style="margin-right:1rem">
-        <codemirror
-          v-bind:options="codeMirrorOptionsReadOnly"
-          style="background-color:grey"
-        ></codemirror>
-      </div>
+      <DisableFormTextarea/>
     </div>
   </form>
 </template>
@@ -33,9 +25,15 @@
 <script>
 import Language from '../utils/language'
 import Action from '../utils/Action'
+import FormTextarea from './FormTextarea'
+import DisableFormTextarea from './DisableFormTextarea'
 
 export default {
   name: 'RouterSQL',
+  components: {
+    FormTextarea,
+    DisableFormTextarea,
+  },
   data: function() {
     return {
       textSqlFormat: Language.getLanguageText('sql_format'),
@@ -53,14 +51,6 @@ export default {
           json: true,
         },
         lineNumbers: true,
-      },
-
-      codeMirrorOptionsReadOnly: {
-        mode: {
-          name: 'text/x-sql',
-          json: true,
-        },
-        readOnly: 'nocursor',
       },
     }
   },
@@ -104,7 +94,15 @@ export default {
           errmsg: errmsg,
         })
       }
-    }
+    },
+    closeTextarea: function(index) {
+      var textareaCells = []
+      for (var i=0;i<this.textareaCells.length;i++) {
+        if (i == index) continue
+        textareaCells.push(this.textareaCells[i])
+      }
+      this.textareaCells = textareaCells
+    },
   },
 }
 </script>

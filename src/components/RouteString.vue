@@ -1,13 +1,10 @@
 <template>
   <form class="cu-string-form" autocomplete="off">
     <div class="clearfix cu-string-form-cell" style="height:100%" v-for="(textareaCell, index) in textareaCells" :key='index'>
-      <div class="cu-string-form-textarea" v-bind:class="{'cu-errormsg':textareaCell.errmsg!=''}">
-        <codemirror
-          v-bind:options="codeMirrorOptions"
-          v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
-          v-on:input="onInput($event, index)"
-        ></codemirror>
-      </div>
+      <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="textareaCell.errmsg" 
+        v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
+        v-bind:enableClose="textareaCell.length>1"
+        v-on:textchange="onInput($event, index)" v-on:close="closeTextarea(index)"/>
       <div class="cu-string-form-actions">
         <div class="cu-string-form-actions-list">
           <div class="cu-string-form-actions-item">
@@ -26,12 +23,7 @@
       </div>
     </div>
     <div class="clearfix cu-string-form-cell" style="height:100%">
-      <div class="cu-string-form-textarea disable" style="margin-right:1rem">
-        <codemirror
-          v-bind:options="codeMirrorOptionsReadOnly"
-          style="background-color:grey"
-        ></codemirror>
-      </div>
+      <DisableFormTextarea/>
     </div>
   </form>
 </template>
@@ -39,9 +31,15 @@
 <script>
 import Language from '../utils/language'
 import Action from '../utils/Action'
+import FormTextarea from './FormTextarea'
+import DisableFormTextarea from './DisableFormTextarea'
 
 export default {
   name: 'RouterString',
+  components: {
+    FormTextarea,
+    DisableFormTextarea,
+  },
   data: function() {
     return {
       textEncodeURI: Language.getLanguageText('encode_uri'),
@@ -61,14 +59,6 @@ export default {
           json: true,
         },
         lineNumbers: true,
-      },
-
-      codeMirrorOptionsReadOnly: {
-        mode: {
-          name: 'text',
-          json: true,
-        },
-        readOnly: 'nocursor',
       },
     }
   },
@@ -112,7 +102,15 @@ export default {
           errmsg: errmsg,
         })
       }
-    }
+    },
+    closeTextarea: function(index) {
+      var textareaCells = []
+      for (var i=0;i<this.textareaCells.length;i++) {
+        if (i == index) continue
+        textareaCells.push(this.textareaCells[i])
+      }
+      this.textareaCells = textareaCells
+    },
   },
 }
 </script>

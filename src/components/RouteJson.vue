@@ -47,8 +47,6 @@ export default {
       textJsonCompress: Language.getLanguageText('json_compress'),
       textJsonEscape: Language.getLanguageText('json_escape'),
       textJsonUnescape: Language.getLanguageText('json_unescape'),
-      textCopied: Language.getLanguageText('copied'),
-      textCopyFail: Language.getLanguageText('copy_fail'),
       textFullScreen: Language.getLanguageText('full_screen'),
 
       jsonCells: [{

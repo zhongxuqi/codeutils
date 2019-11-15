@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import Language from '../utils/language'
 import FullScreenTextarea from './FullScreenTextarea'
 
 export default {
@@ -39,6 +40,9 @@ export default {
   },
   data: function() {
     return {
+      textCopied: Language.getLanguageText('copied'),
+      textCopyFail: Language.getLanguageText('copy_fail'),
+
       currValue: '',
       fullscreen: false,
     }
@@ -71,6 +75,11 @@ export default {
   },
   mounted: function() {
     this.currValue = this.value
+  },
+  watch: {
+    value: function(newValue) {
+      this.currValue = newValue
+    },
   },
 }
 </script>

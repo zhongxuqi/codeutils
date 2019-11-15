@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="cu-fullscreen-textarea-body-actions">
-        <b-button size="sm" variant="danger" v-on:click="$emit('close')">
+        <b-button size="sm" variant="danger" v-on:click.capture="$emit('close')">
           <i class="iconfont icon-close" style="font-size:1rem"></i>
         </b-button>
       </div>

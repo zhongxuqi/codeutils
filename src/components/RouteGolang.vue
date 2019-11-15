@@ -1,14 +1,11 @@
 <template>
   <form class="cu-golang-form" autocomplete="off">
     <div class="clearfix cu-golang-form-cell" style="height:100%" v-for="(textareaCell, index) in textareaCells" :key='index'>
-      <div class="cu-golang-form-textarea" v-bind:class="{'cu-errormsg':textareaCell.errmsg!=''}">
-        <codemirror
-          v-bind:options="textareaCell.options"
-          v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
-          v-on:input="onInput($event, index)"
-        ></codemirror>
-      </div>
-      <div class="cu-golang-form-actions">
+      <FormTextarea v-bind:codeMirrorOptions="textareaCell.options" v-bind:errmsg="textareaCell.errmsg" 
+        v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
+        v-bind:enableClose="false"
+        v-on:textchange="onInput($event, index)"/>
+      <div class="cu-golang-form-actions" v-if="index<textareaCells.length-1">
         <div class="cu-golang-form-actions-list">
           <div class="cu-golang-form-actions-item">
             <b-button variant="outline-primary" :pressed="textareaCell.action=='jsonToGolang'" v-on:click="onActionChange(index, 'jsonToGolang')">{{textJsonToGolang}}</b-button>
@@ -25,9 +22,13 @@
 <script>
 import Language from '../utils/language'
 import Action from '../utils/Action'
+import FormTextarea from './FormTextarea'
 
 export default {
   name: 'RouterGolang',
+  components: {
+    FormTextarea,
+  },
   data: function() {
     return {
       textJsonToGolang: Language.getLanguageText('json_to_golang'),
@@ -39,10 +40,9 @@ export default {
         errmsg: '',
         options: {
           mode: {
-            name: 'text/javascript',
-            json: true,
+            name: 'text',
           },
-          lineNumbers: true,
+          lineNumbers:true,
         },
       }, {
         value: '',
@@ -73,7 +73,10 @@ export default {
             name: 'text/javascript',
             json: true,
           },
-          lineNumbers: true,
+          lineNumbers:true,
+          foldGutter: true,
+          gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+          lint: true,
         }
       } else if (newAction == 'sqlToGolang') {
         textareaCells[index].options = {
