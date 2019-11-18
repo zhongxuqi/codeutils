@@ -25,6 +25,7 @@ import 'codemirror/addon/fold/indent-fold'
 import 'codemirror/addon/fold/comment-fold'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/lint/json-lint'
+import VueResource from 'vue-resource'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -35,6 +36,7 @@ Vue.use(Snotify, {
     position: SnotifyPosition.rightTop
   },
 })
+Vue.use(VueResource)
 
 const routes = [
   { path: '/', component: RouteJson },

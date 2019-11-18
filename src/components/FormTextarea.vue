@@ -16,6 +16,10 @@
       <b-button variant="light"  size="sm" style="margin-top:0.5rem" v-on:click="openFullScreen">
         <i class="iconfont icon-full-screen" style="font-size:1rem"></i>
       </b-button>
+      <br/>
+      <b-button variant="warning"  size="sm" style="margin-top:0.5rem" v-on:click="onIsBug">
+        {{textIsThisBug}}
+      </b-button>
     </div>
     <vue-snotify></vue-snotify>
     <FullScreenTextarea v-if="fullscreen" v-bind:text="value" 
@@ -42,6 +46,7 @@ export default {
     return {
       textCopied: Language.getLanguageText('copied'),
       textCopyFail: Language.getLanguageText('copy_fail'),
+      textIsThisBug: Language.getLanguageText('is_this_bug'),
 
       currValue: '',
       fullscreen: false,
@@ -71,6 +76,9 @@ export default {
     },
     closeFullScreen: function() {
       this.fullscreen = false
+    },
+    onIsBug: function() {
+      this.$emit('isbug')
     },
   },
   mounted: function() {

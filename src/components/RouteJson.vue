@@ -4,7 +4,9 @@
       <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="jsonCell.errmsg" 
         v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
         v-bind:enableClose="jsonCells.length>1"
-        v-on:textchange="onInput($event, index)" v-on:close="closeTextarea(index)"/>
+        v-on:textchange="onInput($event, index)"
+        v-on:close="closeTextarea(index)"
+        v-on:isbug="onIsBug(index)"/>
       <div class="cu-json-form-actions">
         <div class="cu-json-form-actions-list">
           <div class="cu-json-form-actions-item">
@@ -25,6 +27,12 @@
     <div class="clearfix cu-json-form-cell" style="height:100%">
       <DisableFormTextarea/>
     </div>
+    <b-modal ref="modal-json-bug" v-bind:title="textSubmitBug" v-on:ok="sendBug">
+      <b-form-textarea
+        v-model="bugMessage"
+        v-bind:placeholder="textInputBugHint"
+      ></b-form-textarea>
+    </b-modal>
   </form>
 </template>
 
@@ -48,6 +56,9 @@ export default {
       textJsonEscape: Language.getLanguageText('json_escape'),
       textJsonUnescape: Language.getLanguageText('json_unescape'),
       textFullScreen: Language.getLanguageText('full_screen'),
+      textSubmitBug: Language.getLanguageText('submit_bug'),
+      textInputBugHint: Language.getLanguageText('input_bug_hint'),
+      textThankBug: Language.getLanguageText('thank_bug'),
 
       jsonCells: [{
         value: '',
@@ -65,6 +76,9 @@ export default {
         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
         lint: true,
       },
+
+      bugIndex: 0,
+      bugMessage: '',
     }
   },
   methods: {
@@ -116,6 +130,24 @@ export default {
         jsonCells.push(this.jsonCells[i])
       }
       this.jsonCells = jsonCells
+    },
+    onIsBug: function(index) {
+      this.bugIndex = index
+      this.$refs['modal-json-bug'].show()
+    },
+    sendBug: function() {
+      this.$http.post('/openapi/codeutils', {
+        type: 2,
+        context: JSON.stringify({
+          index: this.bugIndex,
+          cells: this.jsonCells,
+        }),
+        message: this.bugMessage,
+      }).then((function(resp) {
+        this.bugIndex = 0
+        this.bugMessage = ''
+        this.$snotify.success(Language.getLanguageText('thank_bug'))
+      }).bind(this))
     },
   },
 }

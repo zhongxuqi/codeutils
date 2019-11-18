@@ -49,6 +49,13 @@ var languageMap = {
     'copy_fail': 'Copy Fail',
     'full_screen': 'Full Screen',
     'back': 'Back',
+    'advise': 'Advise',
+    'input_advise_hint': 'Please input advise...',
+    'is_this_bug': 'Is this bug?',
+    'submit_bug': 'Submit bug',
+    'input_bug_hint': 'Why is this bug?...',
+    'thank_advise': 'Thank you for advise',
+    'thank_bug': 'Thank you for submit bug',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -72,6 +79,13 @@ var languageMap = {
     'copy_fail': '复制失败',
     'full_screen': '全屏',
     'back': '返回',
+    'advise': '建议',
+    'input_advise_hint': '请输入您的建议...',
+    'is_this_bug': '有Bug?',
+    'submit_bug': '提交Bug',
+    'input_bug_hint': '为什么是Bug?...',
+    'thank_advise': '感谢您的建议',
+    'thank_bug': '感谢您提交Bug',
   },
 }
 

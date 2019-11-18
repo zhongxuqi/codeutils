@@ -7,11 +7,18 @@
         <SideBarItem v-bind:title="textSQLUtils" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
         <SideBarItem v-bind:title="textStringUtils" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
         <SideBarItem v-bind:title="textGoLangUtils" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
+        <SideBarItem v-bind:title="textAdvise" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
       </b-col>
       <b-col cols="10" class="cu-app-body" style="padding:0rem">
         <router-view></router-view>
       </b-col>
     </b-row>
+    <b-modal ref="modal-advise" v-bind:title="textAdvise" v-on:ok="sendAdviseMessage">
+      <b-form-textarea
+        v-model="adviseValue"
+        v-bind:placeholder="textInputAdviseHint"
+      ></b-form-textarea>
+    </b-modal>
   </b-container>
 </template>
 
@@ -30,14 +37,33 @@ export default {
       textSQLUtils: Language.getLanguageText('sql_utils'),
       textStringUtils: Language.getLanguageText('string_utils'),
       textGoLangUtils: Language.getLanguageText('golang_utils'),
+      textAdvise: Language.getLanguageText('advise'),
+      textInputAdviseHint: Language.getLanguageText('input_advise_hint'),
+      textThankAdvise: Language.getLanguageText('thank_advise'),
 
       route: 'json',
+
+      adviseValue: '',
     }
   },
   methods: {
     changeRoute: function(newRoute) {
       this.route = newRoute
       this.$router.push(this.route)
+    },
+    openAdvise: function() {
+      this.$refs['modal-advise'].show()
+    },
+    sendAdviseMessage: function() {
+      if (this.adviseValue == '') return
+      this.$http.post('/openapi/codeutils', {
+        type: 1,
+        context: '',
+        message: this.adviseValue,
+      }).then((function(resp) {
+        this.adviseValue = ''
+        this.$snotify.success(Language.getLanguageText('thank_advise'))
+      }).bind(this))
     },
   },
   mounted: function() {

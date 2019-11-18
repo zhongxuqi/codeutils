@@ -4,7 +4,8 @@
       <FormTextarea v-bind:codeMirrorOptions="textareaCell.options" v-bind:errmsg="textareaCell.errmsg" 
         v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
         v-bind:enableClose="false"
-        v-on:textchange="onInput($event, index)"/>
+        v-on:textchange="onInput($event, index)"
+        v-on:isbug="onIsBug(index)"/>
       <div class="cu-golang-form-actions" v-if="index<textareaCells.length-1">
         <div class="cu-golang-form-actions-list">
           <div class="cu-golang-form-actions-item">
@@ -16,6 +17,12 @@
         </div>
       </div>
     </div>
+    <b-modal ref="modal-golang-bug" v-bind:title="textSubmitBug" v-on:ok="sendBug">
+      <b-form-textarea
+        v-model="bugMessage"
+        v-bind:placeholder="textInputBugHint"
+      ></b-form-textarea>
+    </b-modal>
   </form>
 </template>
 
@@ -33,6 +40,9 @@ export default {
     return {
       textJsonToGolang: Language.getLanguageText('json_to_golang'),
       textSqlToGolang: Language.getLanguageText('sql_to_golang'),
+      textSubmitBug: Language.getLanguageText('submit_bug'),
+      textInputBugHint: Language.getLanguageText('input_bug_hint'),
+      textThankBug: Language.getLanguageText('thank_bug'),
 
       textareaCells: [{
         value: '',
@@ -55,6 +65,9 @@ export default {
           lineNumbers: true,
         },
       }],
+
+      bugIndex: 0,
+      bugMessage: '',
     }
   },
   methods: {
@@ -102,7 +115,25 @@ export default {
           break
         }
       }
-    }
+    },
+    onIsBug: function(index) {
+      this.bugIndex = index
+      this.$refs['modal-golang-bug'].show()
+    },
+    sendBug: function() {
+      this.$http.post('/openapi/codeutils', {
+        type: 2,
+        context: JSON.stringify({
+          index: this.bugIndex,
+          cells: this.textareaCells,
+        }),
+        message: this.bugMessage,
+      }).then((function(resp) {
+        this.bugIndex = 0
+        this.bugMessage = ''
+        this.$snotify.success(Language.getLanguageText('thank_bug'))
+      }).bind(this))
+    },
   },
 }
 </script>
