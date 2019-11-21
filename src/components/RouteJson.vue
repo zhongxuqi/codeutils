@@ -75,6 +75,8 @@ export default {
         foldGutter: true,
         gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
         lint: true,
+        theme: 'idea',
+        matchBrackets: true,
       },
 
       bugIndex: 0,
@@ -143,7 +145,7 @@ export default {
           cells: this.jsonCells,
         }),
         message: this.bugMessage,
-      }).then((function(resp) {
+      }).then((function() {
         this.bugIndex = 0
         this.bugMessage = ''
         this.$snotify.success(Language.getLanguageText('thank_bug'))

@@ -26,6 +26,7 @@ import 'codemirror/addon/fold/comment-fold'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/lint/json-lint'
 import VueResource from 'vue-resource'
+import 'codemirror/theme/idea.css'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)

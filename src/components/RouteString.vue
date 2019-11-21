@@ -70,6 +70,7 @@ export default {
           json: true,
         },
         lineNumbers: true,
+        theme: 'idea',
       },
 
       bugIndex: 0,
@@ -137,7 +138,7 @@ export default {
           cells: this.textareaCells,
         }),
         message: this.bugMessage,
-      }).then((function(resp) {
+      }).then((function() {
         this.bugIndex = 0
         this.bugMessage = ''
         this.$snotify.success(Language.getLanguageText('thank_bug'))
