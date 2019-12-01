@@ -3,7 +3,7 @@
     <div class="clearfix cu-string-form-cell" style="height:100%" v-for="(textareaCell, index) in textareaCells" :key='index'>
       <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="textareaCell.errmsg" 
         v-bind:value="textareaCell.errmsg!=''?textareaCell.errmsg:textareaCell.value"
-        v-bind:enableClose="textareaCell.length>1"
+        v-bind:enableClose="textareaCells.length>1"
         v-on:textchange="onInput($event, index)"
         v-on:close="closeTextarea(index)"
         v-on:isbug="onIsBug(index)"/>
@@ -124,6 +124,11 @@ export default {
         if (i == index) continue
         textareaCells.push(this.textareaCells[i])
       }
+      var startIndex = index - 1
+      if (startIndex < 0) {
+        startIndex = 0
+      }
+      this.refreshValues(textareaCells, startIndex)
       this.textareaCells = textareaCells
     },
     onIsBug: function(index) {

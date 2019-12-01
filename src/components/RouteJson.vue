@@ -131,6 +131,11 @@ export default {
         if (i == index) continue
         jsonCells.push(this.jsonCells[i])
       }
+      var startIndex = index - 1
+      if (startIndex < 0) {
+        startIndex = 0
+      }
+      this.refreshValues(jsonCells, startIndex)
       this.jsonCells = jsonCells
     },
     onIsBug: function(index) {
