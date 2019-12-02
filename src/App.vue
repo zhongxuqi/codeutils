@@ -2,7 +2,10 @@
   <b-container class="cu-app" fluid style="padding:0rem">
     <b-row style="height:100%;width:100%;padding:0rem;margin:0rem">
       <b-col class="cu-app-sidebar" style="padding:0rem">
-        <h4 class="cu-app-sidebar-logo"><b>Code</b>Utils</h4>
+        <h4 class="cu-app-sidebar-logo">
+          <i class="iconfont icon--daimashengcheng" style="font-size:2rem;margin-right:1rem"></i>
+          <b>Code</b>Utils
+        </h4>
         <SideBarItem v-bind:title="textJsonUtils" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
         <SideBarItem v-bind:title="textSQLUtils" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
         <SideBarItem v-bind:title="textStringUtils" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
