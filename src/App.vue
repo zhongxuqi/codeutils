@@ -63,7 +63,7 @@ export default {
         type: 1,
         context: '',
         message: this.adviseValue,
-      }).then((function(resp) {
+      }).then((function() {
         this.adviseValue = ''
         this.$snotify.success(Language.getLanguageText('thank_advise'))
       }).bind(this))
