@@ -14,9 +14,9 @@
         <TopBarItem v-bind:title="textAdvise" lineheight="3" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
       </div>
     </div>
-    <b-row class="cu-app-content">
+    <div class="cu-app-content">
       <router-view></router-view>
-    </b-row>
+    </div>
     <b-modal ref="modal-advise" v-bind:title="textAdvise" v-on:ok="sendAdviseMessage">
       <b-form-textarea
         v-model="adviseValue"
@@ -142,6 +142,6 @@ export default {
 }
 
 .cu-errormsg .CodeMirror {
-  color: #dc3545;
+  color: #dc3545 !important;
 }
 </style>

@@ -1,31 +1,25 @@
 <template>
   <form class="cu-json-form" autocomplete="off">
-    <div class="clearfix cu-json-form-cell" style="height:100%" v-for="(jsonCell, index) in jsonCells" :key='index'>
-      <FormTextarea v-bind:codeMirrorOptions="codeMirrorOptions" v-bind:errmsg="jsonCell.errmsg" 
-        v-bind:value="jsonCell.errmsg!=''?jsonCell.errmsg:jsonCell.value"
-        v-bind:enableClose="jsonCells.length>1"
-        v-on:textchange="onInput($event, index)"
-        v-on:close="closeTextarea(index)"
-        v-on:isbug="onIsBug(index)"/>
-      <div class="cu-json-form-actions">
-        <div class="cu-json-form-actions-list">
-          <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='formatJson'" v-on:click="onActionChange(index, 'formatJson')">{{textJsonFormat}}</b-button>
-          </div>
-          <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='compressJson'" v-on:click="onActionChange(index, 'compressJson')">{{textJsonCompress}}</b-button>
-          </div>
-          <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='escapeJson'" v-on:click="onActionChange(index, 'escapeJson')">{{textJsonEscape}}</b-button>
-          </div>
-          <div class="cu-json-form-actions-item">
-            <b-button variant="outline-primary" :pressed="jsonCell.action=='unescapeJson'" v-on:click="onActionChange(index, 'unescapeJson')">{{textJsonUnescape}}</b-button>
-          </div>
+    <div class="cu-json-form-body">
+      <div class="cu-json-form-body-left">
+        <codemirror
+          v-bind:options="codeMirrorOptions"
+          v-bind:value="leftValue"
+          v-on:input="onInput($event, 'left')"
+        ></codemirror>
+      </div>
+      <div class="cu-json-form-body-right">
+        <div class="cu-json-form-body-right-actions">
+          <RightActions height="3" v-bind:currAction="action" v-bind:actions="actions" v-on:select="onActionChange"/>
+        </div>
+        <div class="cu-json-form-body-right-body">
+          <codemirror v-bind:class="{'cu-errormsg':rightError!=''}"
+            v-bind:options="codeMirrorOptions"
+            v-bind:value="rightError!=''?rightError:rightValue"
+            v-on:input="onInput($event, 'right')"
+          ></codemirror>
         </div>
       </div>
-    </div>
-    <div class="clearfix cu-json-form-cell" style="height:100%">
-      <DisableFormTextarea/>
     </div>
     <b-modal ref="modal-json-bug" v-bind:title="textSubmitBug" v-on:ok="sendBug">
       <b-form-textarea
@@ -39,14 +33,12 @@
 <script>
 import Language from '../utils/language'
 import Action from '../utils/Action'
-import FormTextarea from './FormTextarea'
-import DisableFormTextarea from './DisableFormTextarea'
+import RightActions from './RightActions'
 
 export default {
   name: 'RouterJson',
   components: {
-    FormTextarea,
-    DisableFormTextarea,
+    RightActions,
   },
   data: function() {
     return {
@@ -60,15 +52,24 @@ export default {
       textInputBugHint: Language.getLanguageText('input_bug_hint'),
       textThankBug: Language.getLanguageText('thank_bug'),
 
-      jsonCells: [{
-        value: '',
+      actions: [{
         action: 'formatJson',
-        errmsg: '',
+        text: Language.getLanguageText('json_format'),
       }, {
-        value: '',
-        action: '',
-        errmsg: '',
+        action: 'compressJson',
+        text: Language.getLanguageText('json_compress'),
+      }, {
+        action: 'escapeJson',
+        text: Language.getLanguageText('json_escape'),
+      }, {
+        action: 'unescapeJson',
+        text: Language.getLanguageText('json_unescape'),
       }],
+
+      leftValue: '',
+      rightValue: '',
+      rightError: '',
+      action: 'formatJson',
 
       codeMirrorOptions: {
         mode: {
@@ -88,59 +89,28 @@ export default {
     }
   },
   methods: {
-    onInput: function(value, index) {
-      var jsonCells = [...this.jsonCells]
-      jsonCells[index].value = value
-      jsonCells[index].errmsg = ''
-      this.refreshValues(jsonCells, index)
-      this.jsonCells = jsonCells
-    },
-    onActionChange(index, newAction) {
-      var jsonCells = [...this.jsonCells]
-      jsonCells[index].action = newAction
-      this.refreshValues(jsonCells, index)
-      this.jsonCells = jsonCells
-    },
-    refreshValues: function(jsonCells, index) {
-      for (var i=index + 1;i<jsonCells.length;i++) {
-        if (jsonCells[i-1].action == "") break
-        if (jsonCells[i-1].value == "") break
-        try {
-          jsonCells[i].value = Action.do(jsonCells[i-1].value, jsonCells[i-1].action)
-          jsonCells[i].errmsg = ''
-        } catch (e) {
-          jsonCells[i].errmsg = e.message
-          break
-        }
-      }
-      if (index == jsonCells.length - 1) {
-        if (jsonCells[index].action == "") return
-        var actionRet = ''
-        var errmsg = ''
-        try {
-          actionRet = Action.do(jsonCells[index].value, jsonCells[index].action)
-        } catch (e) {
-          errmsg = e.message
-        }
-        jsonCells.push({
-          value: actionRet,
-          action: '',
-          errmsg: errmsg,
-        })
+    onInput: function(value, type) {
+      if (type == 'left') {
+        this.leftValue = value
+        this.refreshValues()
+      } else {
+        this.rightValue = value
       }
     },
-    closeTextarea: function(index) {
-      var jsonCells = []
-      for (var i=0;i<this.jsonCells.length;i++) {
-        if (i == index) continue
-        jsonCells.push(this.jsonCells[i])
+    onActionChange(e) {
+      this.action = e.action
+      this.refreshValues()
+    },
+    refreshValues: function() {
+      var actionRet = ''
+      var errmsg = ''
+      try {
+        actionRet = Action.do(this.leftValue, this.action)
+      } catch (e) {
+        errmsg = e.message
       }
-      var startIndex = index - 1
-      if (startIndex < 0) {
-        startIndex = 0
-      }
-      this.refreshValues(jsonCells, startIndex)
-      this.jsonCells = jsonCells
+      this.rightValue = actionRet
+      this.rightError = errmsg
     },
     onIsBug: function(index) {
       this.bugIndex = index
@@ -167,41 +137,34 @@ export default {
 <style>
 .cu-json-form {
   box-sizing: border-box;
-  padding: 1rem;
   width: 100%;
   height: 100%;
-  overflow-x: scroll;
-  white-space: nowrap;
-  vertical-align: top;
 }
 
-.cu-json-form-cell {
-  display: inline-block;
-  height: 100%;
-  vertical-align: top;
-}
-
-.cu-json-form-actions {
-  display: inline-block;
-  height: 100%;
-  padding: 0rem 2rem;
-  vertical-align: top;
-}
-
-.cu-json-form-actions-list {
+.cu-json-form-body {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items:Center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.cu-json-form-actions-item {
-  padding: 0rem;
-  margin-bottom: 2rem;
+.cu-json-form-body-left {
+  flex: 40;
+  height: 100%;
 }
 
-.cu-json-form-actions-item:last-child {
-  margin-bottom: 0rem;
+.cu-json-form-body-right {
+  flex: 60;
+  height: 100%;
+}
+
+.cu-json-form-body-right-actions {
+  border-bottom: 1px solid #eee;
+}
+
+.cu-json-form-body-right-body {
+  height: calc(100% - 3rem);
+  width: 100%;
 }
 </style>
