@@ -80,9 +80,18 @@ export default {
     onIsBug: function() {
       this.$emit('isbug')
     },
+    onKeyUp: function(event) {
+      if (event.keyCode == 27 && this.fullscreen == true) {
+        this.fullscreen = false
+      }
+    },
   },
   mounted: function() {
     this.currValue = this.value
+    document.body.addEventListener('keyup', this.onKeyUp)
+  },
+  beforeDestroy: function() {
+    document.body.removeEventListener('keyup', this.onKeyUp)
   },
   watch: {
     value: function(newValue) {

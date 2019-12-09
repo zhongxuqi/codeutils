@@ -1,20 +1,21 @@
 <template>
   <b-container class="cu-app" fluid style="padding:0rem">
-    <b-row style="height:100%;width:100%;padding:0rem;margin:0rem">
-      <b-col class="cu-app-sidebar" style="padding:0rem">
-        <h4 class="cu-app-sidebar-logo">
-          <i class="iconfont icon--daimashengcheng" style="font-size:2rem;margin-right:1rem"></i>
-          <b>Code</b>Utils
-        </h4>
-        <SideBarItem v-bind:title="textJsonUtils" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
-        <SideBarItem v-bind:title="textSQLUtils" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
-        <SideBarItem v-bind:title="textStringUtils" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
-        <SideBarItem v-bind:title="textGoLangUtils" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
-        <SideBarItem v-bind:title="textAdvise" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
-      </b-col>
-      <b-col cols="10" class="cu-app-body" style="padding:0rem">
-        <router-view></router-view>
-      </b-col>
+    <div class="cu-app-topbar">
+      <h4 class="cu-app-topbar-logo">
+        <i class="iconfont icon--daimashengcheng" style="font-size:1.7rem;margin-right:0.5rem"></i>
+        <b>Code</b>Utils
+      </h4>
+      <div style="flex:1"></div>
+      <div class="cu-app-topbar-menu">
+        <TopBarItem v-bind:title="textJsonUtils" lineheight="3" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
+        <TopBarItem v-bind:title="textSQLUtils" lineheight="3" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
+        <TopBarItem v-bind:title="textStringUtils" lineheight="3" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
+        <TopBarItem v-bind:title="textGoLangUtils" lineheight="3" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
+        <TopBarItem v-bind:title="textAdvise" lineheight="3" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
+      </div>
+    </div>
+    <b-row class="cu-app-content">
+      <router-view></router-view>
     </b-row>
     <b-modal ref="modal-advise" v-bind:title="textAdvise" v-on:ok="sendAdviseMessage">
       <b-form-textarea
@@ -26,13 +27,13 @@
 </template>
 
 <script>
-import SideBarItem from './components/SideBarItem'
+import TopBarItem from './components/TopBarItem'
 import Language from './utils/language'
 
 export default {
   name: 'app',
   components: {
-    SideBarItem,
+    TopBarItem,
   },
   data: function() {
     return {
@@ -71,6 +72,9 @@ export default {
   },
   mounted: function() {
     this.route = this.$router.history.current.fullPath.split('/')[1]
+    if (this.route == "") {
+      this.route = "json"
+    }
   },
   watch: {
     
@@ -86,20 +90,38 @@ export default {
   overflow: hidden;
 }
 
-.cu-app-sidebar {
-  border-right: 1px solid #eee;
-  height: 100%;
-  overflow-y: scroll;
-}
-
-.cu-app-sidebar::-webkit-scrollbar {
-  width: 0 !important;
-}
-
-.cu-app-sidebar-logo {
+.cu-app-topbar {
   box-sizing: border-box;
-  margin: 1rem;
-  text-align: center;
+  height: 3rem;
+  padding: 0rem;
+  margin: 0rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.cu-app-topbar-logo {
+  box-sizing: border-box;
+  line-height: 3rem;
+  margin: 0rem;
+  padding: 0rem;
+  margin-left: 1rem;
+}
+
+.cu-app-topbar-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cu-app-content {
+  height: calc(100% - 3rem);
+  width: 100%;
+  padding: 0rem;
+  margin: 0rem;
 }
 
 .cu-app-body {

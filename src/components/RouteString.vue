@@ -159,7 +159,7 @@ export default {
   box-sizing: border-box;
   padding: 1rem;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow-x: scroll;
   white-space: nowrap;
   vertical-align: top;
