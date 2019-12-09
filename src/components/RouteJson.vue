@@ -9,8 +9,11 @@
         ></codemirror>
       </div>
       <div class="cu-json-form-body-right">
-        <div class="cu-json-form-body-right-actions">
-          <RightActions height="3" v-bind:currAction="action" v-bind:actions="actions" v-on:select="onActionChange"/>
+        <div class="cu-json-form-body-right-menu">
+          <div class="cu-json-form-body-right-actions">
+            <RightActions height="3" v-bind:currAction="action" v-bind:actions="actions" v-on:select="onActionChange"/>
+          </div>
+          <b-button variant="outline-warning" size="sm" style="margin: 0rem 1rem" v-on:click="onIsBug">{{textIsThisBug}}</b-button>
         </div>
         <div class="cu-json-form-body-right-body">
           <codemirror v-bind:class="{'cu-errormsg':rightError!=''}"
@@ -27,6 +30,7 @@
         v-bind:placeholder="textInputBugHint"
       ></b-form-textarea>
     </b-modal>
+    <vue-snotify></vue-snotify>
   </form>
 </template>
 
@@ -48,6 +52,7 @@ export default {
       textJsonEscape: Language.getLanguageText('json_escape'),
       textJsonUnescape: Language.getLanguageText('json_unescape'),
       textFullScreen: Language.getLanguageText('full_screen'),
+      textIsThisBug: Language.getLanguageText('is_this_bug'),
       textSubmitBug: Language.getLanguageText('submit_bug'),
       textInputBugHint: Language.getLanguageText('input_bug_hint'),
       textThankBug: Language.getLanguageText('thank_bug'),
@@ -82,9 +87,9 @@ export default {
         lint: true,
         theme: 'idea',
         matchBrackets: true,
+        lineWrapping: true,
       },
 
-      bugIndex: 0,
       bugMessage: '',
     }
   },
@@ -102,6 +107,11 @@ export default {
       this.refreshValues()
     },
     refreshValues: function() {
+      if (this.leftValue == '') {
+        this.rightValue = ''
+        this.rightError = ''
+        return
+      }
       var actionRet = ''
       var errmsg = ''
       try {
@@ -112,20 +122,20 @@ export default {
       this.rightValue = actionRet
       this.rightError = errmsg
     },
-    onIsBug: function(index) {
-      this.bugIndex = index
+    onIsBug: function() {
       this.$refs['modal-json-bug'].show()
     },
     sendBug: function() {
       this.$http.post('/openapi/codeutils', {
         type: 2,
         context: JSON.stringify({
-          index: this.bugIndex,
-          cells: this.jsonCells,
+          leftValue: this.leftValue,
+          rightValue: this.rightValue,
+          rightError: this.rightError,
+          action: this.action,
         }),
         message: this.bugMessage,
       }).then((function() {
-        this.bugIndex = 0
         this.bugMessage = ''
         this.$snotify.success(Language.getLanguageText('thank_bug'))
       }).bind(this))
@@ -151,15 +161,25 @@ export default {
 
 .cu-json-form-body-left {
   flex: 40;
+  width: 0rem;
   height: 100%;
 }
 
 .cu-json-form-body-right {
   flex: 60;
+  width: 0rem;
   height: 100%;
 }
 
+.cu-json-form-body-right-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .cu-json-form-body-right-actions {
+  flex: 1;
   border-bottom: 1px solid #eee;
 }
 

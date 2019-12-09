@@ -23,6 +23,7 @@
         v-bind:placeholder="textInputAdviseHint"
       ></b-form-textarea>
     </b-modal>
+    <vue-snotify></vue-snotify>
   </b-container>
 </template>
 
@@ -108,9 +109,12 @@ export default {
   margin: 0rem;
   padding: 0rem;
   margin-left: 1rem;
+  color: #4CAF50;
 }
 
 .cu-app-topbar-menu {
+  height: 3rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: center;

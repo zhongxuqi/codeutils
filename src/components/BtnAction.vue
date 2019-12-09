@@ -24,17 +24,17 @@ export default {
 .cu-btn-action {
   box-sizing: border-box;
   vertical-align: middle;
-  color: grey;
+  color: #999;
   background-color: white;
   cursor: pointer;
   padding: 0rem 1rem;
 }
 
 .cu-btn-action:hover {
-  color: black;
+  color: #4CAF50;
 }
 
 .cu-btn-action.active {
-  color: black;
+  color: #4CAF50;
 }
 </style>

@@ -1,8 +1,8 @@
 export default {
-  encodeURI: function(value) {
+  encodeURL: function(value) {
     return encodeURIComponent(value)
   },
-  decodeURI: function(value) {
+  decodeURL: function(value) {
     return decodeURIComponent(value)
   },
   encodeUnicode: function(value){

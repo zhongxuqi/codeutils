@@ -24,10 +24,10 @@ export default {
         return res.go
       case "sqlToGolang":
         return GoUtils.sqlToGolang(value)
-      case "encodeURI":
-        return StringUtils.encodeURI(value)
-      case "decodeURI":
-        return StringUtils.decodeURI(value)
+      case "encodeURL":
+        return StringUtils.encodeURL(value)
+      case "decodeURL":
+        return StringUtils.decodeURL(value)
       case "encodeUnicode":
         return StringUtils.encodeUnicode(value)
       case "decodeUnicode":
