@@ -56,6 +56,13 @@ var languageMap = {
     'input_bug_hint': 'Why is this bug?...',
     'thank_advise': 'Thank you for advise',
     'thank_bug': 'Thank you for submit bug',
+    'timestamp': 'Timestamp',
+    'second': 'Second',
+    'milisecond': 'Milisecond',
+    'timestamp2datetime': 'Timestamp to Datetime',
+    'datetime2timestamp': 'Datetime to Timestamp',
+    'input_timestamp_hint': 'Please input timestamp',
+    'input_datetime_hint': 'Please input datetime',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -86,6 +93,13 @@ var languageMap = {
     'input_bug_hint': '为什么是Bug?...',
     'thank_advise': '感谢您的建议',
     'thank_bug': '感谢您提交Bug',
+    'timestamp': '时间戳',
+    'second': '秒',
+    'milisecond': '毫秒',
+    'timestamp2datetime': '时间戳转日期',
+    'datetime2timestamp': '日期转时间戳',
+    'input_timestamp_hint': '请输入时间戳',
+    'input_datetime_hint': '请输入日期',
   },
 }
 

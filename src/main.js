@@ -27,6 +27,7 @@ import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/lint/json-lint'
 import VueResource from 'vue-resource'
 import 'codemirror/theme/idea.css'
+import RouteTime from './components/RouteTime';
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -45,6 +46,7 @@ const routes = [
   { path: '/sql', component: RouteSQL },
   { path: '/string', component: RouteString },
   { path: '/golang', component: RouteGolang },
+  { path: '/time', component: RouteTime },
 ]
 
 const router = new VueRouter({

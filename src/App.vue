@@ -11,6 +11,7 @@
         <TopBarItem v-bind:title="textSQLUtils" lineheight="3" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
         <TopBarItem v-bind:title="textStringUtils" lineheight="3" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
         <TopBarItem v-bind:title="textGoLangUtils" lineheight="3" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
+        <TopBarItem v-bind:title="textTimestamp" lineheight="3" icon="icon-icon-time" iconSize="1" v-bind:active="route==='time'" v-on:select="changeRoute('time')"/>
         <TopBarItem v-bind:title="textAdvise" lineheight="3" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
       </div>
     </div>
@@ -45,6 +46,7 @@ export default {
       textAdvise: Language.getLanguageText('advise'),
       textInputAdviseHint: Language.getLanguageText('input_advise_hint'),
       textThankAdvise: Language.getLanguageText('thank_advise'),
+      textTimestamp: Language.getLanguageText('timestamp'),
 
       route: 'json',
 
