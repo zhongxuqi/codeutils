@@ -68,11 +68,15 @@ export default {
 
       codeMirrorOptionsLeft: {
         mode: {
-          name: 'text',
+          name: 'text/javascript',
           json: true,
         },
-        lineNumbers: true,
+        lineNumbers:true,
+        foldGutter: true,
+        gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+        lint: true,
         theme: 'idea',
+        matchBrackets: true,
         lineWrapping: true,
       },
 
