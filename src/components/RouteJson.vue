@@ -3,7 +3,7 @@
     <div class="cu-json-form-body">
       <div class="cu-json-form-body-left">
         <codemirror
-          v-bind:options="codeMirrorOptions"
+          v-bind:options="codeMirrorOptionsLeft"
           v-bind:value="leftValue"
           v-on:input="onInput($event, 'left')"
         ></codemirror>
@@ -17,7 +17,7 @@
         </div>
         <div class="cu-json-form-body-right-body">
           <codemirror v-bind:class="{'cu-errormsg':rightError!=''}"
-            v-bind:options="codeMirrorOptions"
+            v-bind:options="codeMirrorOptionsRight"
             v-bind:value="rightError!=''?rightError:rightValue"
             v-on:input="onInput($event, 'right')"
           ></codemirror>
@@ -76,7 +76,7 @@ export default {
       rightError: '',
       action: 'formatJson',
 
-      codeMirrorOptions: {
+      codeMirrorOptionsLeft: {
         mode: {
           name: 'text/javascript',
           json: true,
@@ -88,6 +88,20 @@ export default {
         theme: 'idea',
         matchBrackets: true,
         lineWrapping: true,
+      },
+      codeMirrorOptionsRight: {
+        mode: {
+          name: 'text/javascript',
+          json: true,
+        },
+        lineNumbers:true,
+        foldGutter: true,
+        gutters:["CodeMirror-linenumbers", "CodeMirror-foldgutter","CodeMirror-lint-markers"],
+        lint: true,
+        theme: 'idea',
+        matchBrackets: true,
+        lineWrapping: true,
+        readOnly: true,
       },
 
       bugMessage: '',

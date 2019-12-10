@@ -88,6 +88,7 @@ export default {
         lineNumbers: true,
         theme: 'idea',
         lineWrapping: true,
+        readOnly: true,
       },
 
       bugMessage: '',

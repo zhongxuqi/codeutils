@@ -3,7 +3,7 @@
     <div class="cu-sql-form-body">
       <div class="cu-sql-form-body-left">
         <codemirror
-          v-bind:options="codeMirrorOptions"
+          v-bind:options="codeMirrorOptionsLeft"
           v-bind:value="leftValue"
           v-on:input="onInput($event, 'left')"
         ></codemirror>
@@ -17,7 +17,7 @@
         </div>
         <div class="cu-sql-form-body-right-body">
           <codemirror v-bind:class="{'cu-errormsg':rightError!=''}"
-            v-bind:options="codeMirrorOptions"
+            v-bind:options="codeMirrorOptionsRight"
             v-bind:value="rightError!=''?rightError:rightValue"
             v-on:input="onInput($event, 'right')"
           ></codemirror>
@@ -66,7 +66,7 @@ export default {
       rightError: '',
       action: 'formatSql',
 
-      codeMirrorOptions: {
+      codeMirrorOptionsLeft: {
         mode: {
           name: 'text/x-sql',
           json: true,
@@ -74,6 +74,16 @@ export default {
         lineNumbers: true,
         theme: 'idea',
         lineWrapping: true,
+      },
+      codeMirrorOptionsRight: {
+        mode: {
+          name: 'text/x-sql',
+          json: true,
+        },
+        lineNumbers: true,
+        theme: 'idea',
+        lineWrapping: true,
+        readOnly: true,
       },
 
       bugMessage: '',
