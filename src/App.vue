@@ -12,6 +12,7 @@
         <TopBarItem v-bind:title="textStringUtils" lineheight="3" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
         <TopBarItem v-bind:title="textGoLangUtils" lineheight="3" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
         <TopBarItem v-bind:title="textTimestamp" lineheight="3" icon="icon-icon-time" iconSize="1" v-bind:active="route==='time'" v-on:select="changeRoute('time')"/>
+        <TopBarItem v-bind:title="textTextDiff" lineheight="3" icon="icon-compare" iconSize="1" v-bind:active="route==='diff'" v-on:select="changeRoute('diff')"/>
         <TopBarItem v-bind:title="textAdvise" lineheight="3" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
       </div>
     </div>
@@ -47,6 +48,7 @@ export default {
       textInputAdviseHint: Language.getLanguageText('input_advise_hint'),
       textThankAdvise: Language.getLanguageText('thank_advise'),
       textTimestamp: Language.getLanguageText('timestamp'),
+      textTextDiff: Language.getLanguageText('text_diff'),
 
       route: 'json',
 

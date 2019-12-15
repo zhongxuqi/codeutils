@@ -25,9 +25,11 @@ import 'codemirror/addon/fold/indent-fold'
 import 'codemirror/addon/fold/comment-fold'
 import 'codemirror/addon/edit/matchbrackets'
 import 'codemirror/addon/lint/json-lint'
+import 'codemirror/addon/display/placeholder'
 import VueResource from 'vue-resource'
 import 'codemirror/theme/idea.css'
 import RouteTime from './components/RouteTime';
+import RouteDiff from './components/RouteDiff';
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -47,6 +49,7 @@ const routes = [
   { path: '/string', component: RouteString },
   { path: '/golang', component: RouteGolang },
   { path: '/time', component: RouteTime },
+  { path: '/diff', component: RouteDiff },
 ]
 
 const router = new VueRouter({

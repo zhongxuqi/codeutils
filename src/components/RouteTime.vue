@@ -25,7 +25,7 @@
         <b-input-group class="cu-time-form-row-right">
           <b-form-input v-model="datetimeOutput" style="background-color:white" disabled></b-form-input>
           <template v-slot:append>
-            <b-dropdown v-bind:text="timestampTypes[timestampTypeIndex].desc" variant="success">
+            <b-dropdown v-bind:text="timestampTypes[datetimeTypeIndex].desc" variant="success">
               <b-dropdown-item v-for="(timestampType,index) in timestampTypes" v-bind:key="timestampType.type" v-on:click="onChangeTimestampType(index, 'datetime')">{{timestampType.desc}}</b-dropdown-item>
             </b-dropdown>
           </template>

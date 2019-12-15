@@ -63,6 +63,8 @@ var languageMap = {
     'datetime2timestamp': 'Datetime to Timestamp',
     'input_timestamp_hint': 'Please input timestamp',
     'input_datetime_hint': 'Please input datetime',
+    'text_diff': 'Text Diff',
+    'input_text_hint': 'Please input text',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -100,6 +102,8 @@ var languageMap = {
     'datetime2timestamp': '日期转时间戳',
     'input_timestamp_hint': '请输入时间戳',
     'input_datetime_hint': '请输入日期',
+    'text_diff': '文本对比',
+    'input_text_hint': '请输入文本',
   },
 }
 
