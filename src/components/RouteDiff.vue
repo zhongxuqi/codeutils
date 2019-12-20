@@ -67,7 +67,7 @@ export default {
     refreshValues: function() {
       var display = document.getElementById('cu-diff-display')
       var fragment = document.createDocumentFragment()
-      var diff = Diff.diffChars(this.leftValue, this.rightValue)
+      var diff = Diff.diffTrimmedLines(this.leftValue, this.rightValue, {ignoreWhitespace:true})
       diff.forEach(function(part) {
         var span = document.createElement('span')
         if (part.added) {

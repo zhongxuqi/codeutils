@@ -19,6 +19,13 @@
     <div class="cu-app-content">
       <router-view></router-view>
     </div>
+    <div class="cu-app-footer">
+      <b-container>
+        <b-row style="line-height:2rem">
+          Copyright © 2019-2020.CodeUtils All rights reserved. <a href="http://www.beian.miit.gov.cn">浙ICP备18002047号-3</a>
+        </b-row>
+      </b-container>
+    </div>
     <b-modal ref="modal-advise" v-bind:title="textAdvise" v-on:ok="sendAdviseMessage">
       <b-form-textarea
         v-model="adviseValue"
@@ -126,7 +133,7 @@ export default {
 }
 
 .cu-app-content {
-  height: calc(100% - 3rem);
+  height: calc(100% - 5rem);
   width: 100%;
   padding: 0rem;
   margin: 0rem;
@@ -138,6 +145,15 @@ export default {
 
 .cu-app-body::-webkit-scrollbar {
   width: 0 !important;
+}
+
+.cu-app-footer {
+  height: 2rem;
+}
+
+.cu-app-footer a {
+  display: inline-block;
+  margin-left: 1rem;
 }
 
 .vue-codemirror-wrap {
