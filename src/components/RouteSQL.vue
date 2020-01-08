@@ -11,9 +11,9 @@
       <div class="cu-sql-form-body-right">
         <div class="cu-sql-form-body-right-menu">
           <div class="cu-sql-form-body-right-actions">
-            <RightActions height="3" v-bind:currAction="action" v-bind:actions="actions" v-on:select="onActionChange"/>
+            <RightActions height="2.5" v-bind:currAction="action" v-bind:actions="actions" v-on:select="onActionChange"/>
           </div>
-          <b-button variant="outline-warning" size="sm" style="margin: 0rem 1rem" v-on:click="onIsBug">{{textIsThisBug}}</b-button>
+          <b-button variant="outline-warning" size="sm" style="margin: 0rem 0.5rem" v-on:click="onIsBug">{{textIsThisBug}}</b-button>
         </div>
         <div class="cu-sql-form-body-right-body">
           <codemirror v-bind:class="{'cu-errormsg':rightError!=''}"
@@ -83,7 +83,7 @@ export default {
         lineNumbers: true,
         theme: 'idea',
         lineWrapping: true,
-        readOnly: true,
+        // readOnly: true,
       },
 
       bugMessage: '',
@@ -176,11 +176,12 @@ export default {
 
 .cu-sql-form-body-right-actions {
   flex: 1;
-  border-bottom: 1px solid #eee;
+  width: 0rem;
+  border-right: 1px solid #eee;
 }
 
 .cu-sql-form-body-right-body {
-  height: calc(100% - 3rem);
+  height: calc(100% - 2.5rem);
   width: 100%;
 }
 </style>

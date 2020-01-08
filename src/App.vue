@@ -7,13 +7,13 @@
       </h4>
       <div style="flex:1"></div>
       <div class="cu-app-topbar-menu">
-        <TopBarItem v-bind:title="textJsonUtils" lineheight="3" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
-        <TopBarItem v-bind:title="textSQLUtils" lineheight="3" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
-        <TopBarItem v-bind:title="textStringUtils" lineheight="3" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
-        <TopBarItem v-bind:title="textGoLangUtils" lineheight="3" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
-        <TopBarItem v-bind:title="textTimestamp" lineheight="3" icon="icon-icon-time" iconSize="1" v-bind:active="route==='time'" v-on:select="changeRoute('time')"/>
-        <TopBarItem v-bind:title="textTextDiff" lineheight="3" icon="icon-compare" iconSize="1" v-bind:active="route==='diff'" v-on:select="changeRoute('diff')"/>
-        <TopBarItem v-bind:title="textAdvise" lineheight="3" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
+        <TopBarItem v-bind:title="textJsonUtils" lineheight="2.5" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
+        <TopBarItem v-bind:title="textSQLUtils" lineheight="2.5" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
+        <TopBarItem v-bind:title="textStringUtils" lineheight="2.5" icon="icon-code" iconSize="1" v-bind:active="route==='string'" v-on:select="changeRoute('string')"/>
+        <TopBarItem v-bind:title="textGoLangUtils" lineheight="2.5" icon="icon-google" iconSize="1" v-bind:active="route==='golang'" v-on:select="changeRoute('golang')"/>
+        <TopBarItem v-bind:title="textTimestamp" lineheight="2.5" icon="icon-icon-time" iconSize="1" v-bind:active="route==='time'" v-on:select="changeRoute('time')"/>
+        <TopBarItem v-bind:title="textTextDiff" lineheight="2.5" icon="icon-compare" iconSize="1" v-bind:active="route==='diff'" v-on:select="changeRoute('diff')"/>
+        <TopBarItem v-bind:title="textAdvise" lineheight="2.5" icon="icon-help" iconSize="1" v-on:select="openAdvise"/>
       </div>
     </div>
     <div class="cu-app-content">
@@ -21,7 +21,7 @@
     </div>
     <div class="cu-app-footer">
       <b-container>
-        <b-row style="line-height:2rem">
+        <b-row style="line-height:1.5rem">
           Copyright © 2019-2020.CodeUtils All rights reserved. <a href="http://www.beian.miit.gov.cn">浙ICP备18002047号-3</a>
         </b-row>
       </b-container>
@@ -104,7 +104,7 @@ export default {
 
 .cu-app-topbar {
   box-sizing: border-box;
-  height: 3rem;
+  height: 2.5rem;
   padding: 0rem;
   margin: 0rem;
   display: flex;
@@ -116,7 +116,7 @@ export default {
 
 .cu-app-topbar-logo {
   box-sizing: border-box;
-  line-height: 3rem;
+  line-height: 2.5rem;
   margin: 0rem;
   padding: 0rem;
   margin-left: 1rem;
@@ -124,7 +124,7 @@ export default {
 }
 
 .cu-app-topbar-menu {
-  height: 3rem;
+  height: 2.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -133,7 +133,7 @@ export default {
 }
 
 .cu-app-content {
-  height: calc(100% - 5rem);
+  height: calc(100% - 4rem);
   width: 100%;
   padding: 0rem;
   margin: 0rem;
@@ -148,7 +148,9 @@ export default {
 }
 
 .cu-app-footer {
-  height: 2rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
 }
 
 .cu-app-footer a {
@@ -163,6 +165,7 @@ export default {
 .CodeMirror {
   border: 1px solid #eee;
   height: 100% !important;
+  font-size: 0.8rem;
 }
 
 .cu-errormsg .CodeMirror {

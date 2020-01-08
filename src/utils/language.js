@@ -65,6 +65,8 @@ var languageMap = {
     'input_datetime_hint': 'Please input datetime',
     'text_diff': 'Text Diff',
     'input_text_hint': 'Please input text',
+    'json_unescape_and_format': 'Json Unescape & Format',
+    'json_compress_and_escape': 'Json Compress & Escape',
   },
   "cn": {
     'json_utils': 'Json工具',
@@ -104,6 +106,8 @@ var languageMap = {
     'input_datetime_hint': '请输入日期',
     'text_diff': '文本对比',
     'input_text_hint': '请输入文本',
+    'json_unescape_and_format': 'Json去转义&格式化',
+    'json_compress_and_escape': 'Json压缩&转义',
   },
 }
 

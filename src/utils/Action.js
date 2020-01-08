@@ -14,6 +14,10 @@ export default {
         return JsonUtils.escapeJson(value)
       case "unescapeJson":
         return JsonUtils.unescapeJson(value)
+      case "unescapeAndFormatJson":
+        return JsonUtils.unescapeAndFormatJson(value)
+      case "compressAndEscapeJson":
+        return JsonUtils.compressAndEscapeJson(value)
       case "formatSql":
         return SqlUtils.formatSql(value)
       case "compressSql":

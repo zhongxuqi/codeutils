@@ -27,7 +27,8 @@ export default {
   color: #999;
   background-color: white;
   cursor: pointer;
-  padding: 0rem 1rem;
+  font-size: 0.9rem;
+  padding: 0rem 0.8rem;
 }
 
 .cu-btn-action:hover {

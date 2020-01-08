@@ -32,7 +32,7 @@ export default {
 
 <style>
 .cu-topbar-item {
-  font-size: 1.0rem;
+  font-size: 0.9rem;
   box-sizing: border-box;
   vertical-align: middle;
   color: #999;
