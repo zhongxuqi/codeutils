@@ -103,6 +103,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 0.9rem;
 }
 
 .cu-diff-form-body-left {
