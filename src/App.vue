@@ -5,7 +5,6 @@
         <i class="iconfont icon--daimashengcheng" style="font-size:1.7rem;margin-right:0.5rem"></i>
         <b>Code</b>Utils
       </h4>
-      <div style="flex:1"></div>
       <div class="cu-app-topbar-menu">
         <TopBarItem v-bind:title="textJsonUtils" lineheight="2.5" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
         <TopBarItem v-bind:title="textSQLUtils" lineheight="2.5" icon="icon-database" iconSize="1" v-bind:active="route==='sql'" v-on:select="changeRoute('sql')"/>
@@ -124,12 +123,24 @@ export default {
 }
 
 .cu-app-topbar-menu {
+  flex: 1;
   height: 2.5rem;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  text-align: right;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.cu-app-topbar-menu::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.cu-app-topbar-menu * {
+  display: inline-block;
 }
 
 .cu-app-content {
