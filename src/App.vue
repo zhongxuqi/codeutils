@@ -134,12 +134,24 @@ export default {
 }
 
 .cu-app-topbar-menu {
+  flex: 1;
   height: 2.5rem;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  text-align: right;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.cu-app-topbar-menu::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.cu-app-topbar-menu * {
+  display: inline-block;
 }
 
 .cu-app-content {
