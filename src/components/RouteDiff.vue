@@ -28,9 +28,6 @@ import Language from '../utils/language'
 
 export default {
   name: 'RouterDiff',
-  components: {
-
-  },
   data: function() {
     return {
       leftValue: '',

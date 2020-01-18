@@ -5,6 +5,10 @@
         <i class="iconfont icon--daimashengcheng" style="font-size:1.7rem;margin-right:0.5rem"></i>
         <b>Code</b>Utils
       </h4>
+      <b-dropdown v-bind:text="textLangDesc" size="sm" variant="outline-success" style="margin-left:1rem">
+        <b-dropdown-item v-bind:href="'/'+route+'/en'">English</b-dropdown-item>
+        <b-dropdown-item v-bind:href="'/'+route+'/zh'">中文</b-dropdown-item>
+      </b-dropdown>
       <div style="flex:1"></div>
       <div class="cu-app-topbar-menu">
         <TopBarItem v-bind:title="textJsonUtils" lineheight="2.5" icon="icon-json" iconSize="1" v-bind:active="route==='json'" v-on:select="changeRoute('json')"/>
@@ -47,6 +51,7 @@ export default {
   },
   data: function() {
     return {
+      textLangDesc: Language.getLanguageDesc(),
       textJsonUtils: Language.getLanguageText('json_utils'),
       textSQLUtils: Language.getLanguageText('sql_utils'),
       textStringUtils: Language.getLanguageText('string_utils'),
@@ -65,7 +70,12 @@ export default {
   methods: {
     changeRoute: function(newRoute) {
       this.route = newRoute
-      this.$router.push(this.route)
+      var nextRoute = this.route
+      var lang = Language.getLanguage();
+      if (lang !== "") {
+        nextRoute = nextRoute + "/" + lang
+      }
+      this.$router.push({path:"/" + nextRoute})
     },
     openAdvise: function() {
       this.$refs['modal-advise'].show()

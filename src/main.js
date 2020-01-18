@@ -28,8 +28,9 @@ import 'codemirror/addon/lint/json-lint'
 import 'codemirror/addon/display/placeholder'
 import VueResource from 'vue-resource'
 import 'codemirror/theme/idea.css'
-import RouteTime from './components/RouteTime';
-import RouteDiff from './components/RouteDiff';
+import RouteTime from './components/RouteTime'
+import RouteDiff from './components/RouteDiff'
+import Route404 from './components/Route404'
 
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
@@ -44,15 +45,18 @@ Vue.use(VueResource)
 
 const routes = [
   { path: '/', component: RouteJson },
-  { path: '/json', component: RouteJson },
-  { path: '/sql', component: RouteSQL },
-  { path: '/string', component: RouteString },
-  { path: '/golang', component: RouteGolang },
-  { path: '/time', component: RouteTime },
-  { path: '/diff', component: RouteDiff },
+  { path: '/json*', component: RouteJson },
+  { path: '/sql*', component: RouteSQL },
+  { path: '/string*', component: RouteString },
+  { path: '/golang*', component: RouteGolang },
+  { path: '/time*', component: RouteTime },
+  { path: '/diff*', component: RouteDiff },
+  { path: '/404', component: Route404},
+  { path: '*', redirect: '/404'},
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

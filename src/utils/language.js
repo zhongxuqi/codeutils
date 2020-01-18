@@ -1,7 +1,7 @@
 function getUrlVars() {
   var vars = {};
   window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-      vars[key] = value;
+    vars[key] = value;
   });
   return vars;
 }
@@ -9,8 +9,8 @@ function getUrlVars() {
 function getUrlParam(parameter, defaultvalue){
   var urlparameter = defaultvalue;
   if(window.location.href.indexOf(parameter) > -1){
-      urlparameter = getUrlVars()[parameter];
-      }
+    urlparameter = getUrlVars()[parameter];
+  }
   return urlparameter;
 }
 var lang = getUrlParam("lang", '')
@@ -18,12 +18,18 @@ var lang = getUrlParam("lang", '')
 if (lang == "") {
   var localLang = navigator.language || navigator.userLanguage;
   if (typeof localLang == "string" && localLang.indexOf("zh") >= 0) {
-    lang = "cn"
+    lang = "zh"
   }
 }
 
-if (lang != "en" && lang != "cn") {
-  lang = "en"
+var items = window.location.pathname.split('/')
+var lastPath = items[items.length - 1]
+if (lastPath === "en" || lastPath === "zh") {
+  lang = lastPath
+}
+
+if (lang != "en" && lang != "zh") {
+  lang = ""
 }
 
 var languageMap = {
@@ -67,8 +73,9 @@ var languageMap = {
     'input_text_hint': 'Please input text',
     'json_unescape_and_format': 'Json Unescape & Format',
     'json_compress_and_escape': 'Json Compress & Escape',
+    'page_not_found': 'Page Not Found',
   },
-  "cn": {
+  "zh": {
     'json_utils': 'Json工具',
     'sql_utils': 'SQL工具',
     'golang_utils': 'Go语言工具',
@@ -108,6 +115,7 @@ var languageMap = {
     'input_text_hint': '请输入文本',
     'json_unescape_and_format': 'Json去转义&格式化',
     'json_compress_and_escape': 'Json压缩&转义',
+    'page_not_found': '未找到页面',
   },
 }
 
@@ -115,7 +123,18 @@ export default {
   getLanguage: function() {
     return lang
   },
+  getLanguageDesc: function() {
+    return {
+      '': 'English',
+      'en': 'English',
+      'zh': '中文',
+    }[lang]
+  },
   getLanguageText: function(key) {
-    return languageMap[lang][key]
+    var currLang = lang
+    if (currLang == "") {
+      currLang = "en"
+    }
+    return languageMap[currLang][key]
   },
 }
