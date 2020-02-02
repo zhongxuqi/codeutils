@@ -49,6 +49,18 @@ export default {
   components: {
     TopBarItem,
   },
+  metaInfo: {
+    title: Language.getLanguageText('mate_title'),
+    meta: [
+      {
+        charset: 'utf-8',
+      },
+      {
+        name: 'keywords',
+        content: 'golang,json,sql,string,timestamp,diff'
+      },
+    ]
+  },
   data: function() {
     return {
       textLangDesc: Language.getLanguageDesc(),

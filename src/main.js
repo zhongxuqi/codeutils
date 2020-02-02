@@ -4,6 +4,7 @@ import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router';
+import VueMeta from 'vue-meta'
 import RouteJson from './components/RouteJson';
 import RouteSQL from './components/RouteSQL';
 import RouteString from './components/RouteString';
@@ -32,6 +33,7 @@ import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
 import Route404 from './components/Route404'
 
+Vue.use(VueMeta)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(CodeMirror)

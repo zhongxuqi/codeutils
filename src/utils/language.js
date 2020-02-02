@@ -34,6 +34,7 @@ if (lang != "en" && lang != "zh") {
 
 var languageMap = {
   "en": {
+    'mate_title': 'CodeUtils - Online Golang Coding Tools',
     'json_utils': 'Json Utils',
     'sql_utils': 'SQL Utils',
     'golang_utils': 'GoLang Utils',
@@ -76,6 +77,7 @@ var languageMap = {
     'page_not_found': 'Page Not Found',
   },
   "zh": {
+    'mate_title': 'CodeUtils - 在线Golang编程工具',
     'json_utils': 'Json工具',
     'sql_utils': 'SQL工具',
     'golang_utils': 'Go语言工具',
