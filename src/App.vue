@@ -43,6 +43,7 @@
 <script>
 import TopBarItem from './components/TopBarItem'
 import Language from './utils/language'
+import Consts from './common/Consts'
 
 export default {
   name: 'app',
@@ -95,6 +96,7 @@ export default {
     sendAdviseMessage: function() {
       if (this.adviseValue == '') return
       this.$http.post('/openapi/codeutils', {
+        app_id: Consts.AppID,
         type: 1,
         context: '',
         message: this.adviseValue,

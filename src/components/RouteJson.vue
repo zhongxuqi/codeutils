@@ -38,6 +38,7 @@
 import Language from '../utils/language'
 import Action from '../utils/Action'
 import RightActions from './RightActions'
+import Consts from '../common/Consts'
 
 export default {
   name: 'RouterJson',
@@ -147,6 +148,7 @@ export default {
     },
     sendBug: function() {
       this.$http.post('/openapi/codeutils', {
+        app_id: Consts.AppID,
         type: 2,
         context: JSON.stringify({
           leftValue: this.leftValue,
