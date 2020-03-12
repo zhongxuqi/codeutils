@@ -58,7 +58,11 @@ export default {
       },
       {
         name: 'keywords',
-        content: 'golang,json,sql,string,timestamp,diff'
+        content: Language.getLanguageText('mate_keyword'),
+      },
+      {
+        name: 'description',
+        content: Language.getLanguageText('mate_description'),
       },
     ]
   },
