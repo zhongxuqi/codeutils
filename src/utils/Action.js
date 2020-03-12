@@ -36,6 +36,14 @@ export default {
         return StringUtils.encodeUnicode(value)
       case "decodeUnicode":
         return StringUtils.decodeUnicode(value)
+      case "encodeHex":
+        return StringUtils.encodeHex(value)
+      case "decodeHex":
+        return StringUtils.decodeHex(value)
+      case "encodeBase64":
+        return StringUtils.encodeBase64(value)
+      case "decodeBase64":
+        return StringUtils.decodeBase64(value)
     }
     return value
   },

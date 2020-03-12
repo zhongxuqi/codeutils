@@ -69,6 +69,18 @@ export default {
       }, {
         action: 'decodeUnicode',
         text: Language.getLanguageText('decode_unicode'),
+      }, {
+        action: 'encodeHex',
+        text: Language.getLanguageText('encode_hex'),
+      }, {
+        action: 'decodeHex',
+        text: Language.getLanguageText('decode_hex'),
+      }, {
+        action: 'encodeBase64',
+        text: Language.getLanguageText('encode_base64'),
+      }, {
+        action: 'decodeBase64',
+        text: Language.getLanguageText('decode_base64'),
       }],
 
       leftValue: '',
