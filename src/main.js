@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import BootstrapVue from 'bootstrap-vue'
+import { LayoutPlugin, ModalPlugin, ButtonPlugin, DropdownPlugin, InputGroupPlugin, FormInputPlugin, FormTextareaPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueRouter from 'vue-router';
@@ -35,7 +35,15 @@ import Route404 from './components/Route404'
 
 Vue.use(VueMeta)
 Vue.use(VueRouter)
-Vue.use(BootstrapVue)
+
+Vue.use(LayoutPlugin)
+Vue.use(ModalPlugin)
+Vue.use(ButtonPlugin)
+Vue.use(DropdownPlugin)
+Vue.use(InputGroupPlugin)
+Vue.use(FormInputPlugin)
+Vue.use(FormTextareaPlugin)
+
 Vue.use(CodeMirror)
 Vue.use(VueClipboard)
 Vue.use(Snotify, {
