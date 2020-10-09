@@ -31,6 +31,7 @@ import VueResource from 'vue-resource'
 import 'codemirror/theme/idea.css'
 import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
+import RouteScratchPaper from './components/RouteScratchPaper'
 import Route404 from './components/Route404'
 
 Vue.use(VueMeta)
@@ -61,6 +62,7 @@ const routes = [
   { path: '/golang*', component: RouteGolang },
   { path: '/time*', component: RouteTime },
   { path: '/diff*', component: RouteDiff },
+  { path: '/scratch_paper', component: RouteScratchPaper },
   { path: '/404', component: Route404},
   { path: '*', redirect: '/404'},
 ]
