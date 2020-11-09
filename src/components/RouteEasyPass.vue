@@ -1,6 +1,6 @@
 <template>
-  <div class="scratch-paper">
-    <h2 style="text-align:center">《草稿本用户隐私协议》</h2>
+  <div class="easypass">
+    <h2 style="text-align:center">《EasyPass用户隐私协议》</h2>
     <p>本应用尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更有个性化的服务，本应用会按照本隐私权政策的规定使用和披露您的个人信息。但本应用将以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，除本隐私政策相关有规定外在未得到您允许 的情况下，本应用不会将这些信息向第三放提供在未征得您事先许可的情况下，本应用不会将这些信息对外披露或向第三方提供。本应用会不时更新本隐私权政策。 您在同意本应用服务使用协议之时，即视为您已经同意本隐私权政策全部内容。本隐私权政策属于本应用服务使用协议不可分割的一部分。</p>
     <h5>1. 适用范围</h5>
     <p>在您注册本应用帐号时，您根据本应用要求提供的个人注册信息；</p>
@@ -66,7 +66,7 @@
 
 <script>
 export default {
-  name: 'RouteScratchPaper',
+  name: 'RouteEasyPass',
   data: function() {
     return {
       
@@ -82,7 +82,7 @@ export default {
 </script>
 
 <style>
-.scratch-paper {
+.easypass {
   position: fixed;
   top: 0px;
   left: 0px;
