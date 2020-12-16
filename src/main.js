@@ -33,6 +33,7 @@ import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
 import RouteScratchPaper from './components/RouteScratchPaper'
 import RouteEasyPass from './components/RouteEasyPass'
+import RouteCompressor from './components/RouteCompressor'
 import Route404 from './components/Route404'
 
 Vue.use(VueMeta)
@@ -65,6 +66,7 @@ const routes = [
   { path: '/diff*', component: RouteDiff },
   { path: '/scratch_paper', component: RouteScratchPaper },
   { path: '/easypass', component: RouteEasyPass },
+  { path: '/easy_compressor', component: RouteCompressor },
   { path: '/404', component: Route404},
   { path: '*', redirect: '/404'},
 ]

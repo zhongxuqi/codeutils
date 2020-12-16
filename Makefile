@@ -1,7 +1,7 @@
 default: release
 
 release:
-	yarn build
+	npm run build
 	cd dist && tar zcvf codeutils.tar.gz * && cd ..
 
 deploy:
