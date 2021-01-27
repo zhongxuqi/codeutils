@@ -26,7 +26,7 @@
     <div class="cu-app-footer">
       <b-container>
         <b-row style="line-height:1.5rem">
-          Copyright © 2019-2020.CodeUtils All rights reserved. <a href="http://www.beian.miit.gov.cn">浙ICP备18002047号-3</a>
+          Copyright © 2019-2020.CodeUtils All rights reserved. <a href="https://beian.miit.gov.cn/" target="_blank">浙ICP备18002047号-3</a>
         </b-row>
       </b-container>
     </div>
