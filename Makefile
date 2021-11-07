@@ -1,5 +1,8 @@
 default: release
 
+serve:
+	npm run serve
+
 release:
 	npm run build
 	cd dist && tar zcvf codeutils.tar.gz * && cd ..
