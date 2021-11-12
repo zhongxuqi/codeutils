@@ -1,9 +1,9 @@
 <template>
   <div class="scratch-paper">
-    <h2 style="text-align:center">《手写记隐私协议》</h2>
+    <h2 style="text-align:center">《EasyNote隐私协议》</h2>
     <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     欢迎您访问我们的产品。 
-   <strong data-v-ad817de0=""> 手写记 </strong>（包括App等产品提供的服务，以下简称“产品和服务”）是由 
+   <strong data-v-ad817de0=""> EasyNote </strong>（包括App等产品提供的服务，以下简称“产品和服务”）是由 
    <strong data-v-ad817de0=""> 杭州探艺科技有限公司 </strong>（以下简称“我们”）开发并运营的。 确保用户的数据安全和隐私保护是我们的首要任务， 本隐私政策载明了您访问和使用我们的产品和服务时所收集的数据及其处理方式。 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
@@ -98,7 +98,7 @@
 
 <script>
 export default {
-  name: 'RouteScratchPaper',
+  name: 'RouteEasyNote',
   data: function() {
     return {
       
