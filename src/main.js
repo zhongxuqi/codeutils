@@ -33,6 +33,7 @@ import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
 import RouteScratchPaper from './components/RouteScratchPaper'
 import RouteEasyNote from './components/RouteEasyNote'
+import RouteEasyNoteVivo from './components/RouteEasyNoteVivo'
 import RouteEasyPass from './components/RouteEasyPass'
 import RouteIPFSPass from './components/RouteIPFSPass'
 import RouteCompressor from './components/RouteCompressor'
@@ -68,6 +69,7 @@ const routes = [
   { path: '/diff*', component: RouteDiff },
   { path: '/scratch_paper', component: RouteScratchPaper },
   { path: '/easynote', component: RouteEasyNote },
+  { path: '/easynote_vivo', component: RouteEasyNoteVivo },
   { path: '/easypass', component: RouteEasyPass },
   { path: '/ipfspass', component: RouteIPFSPass },
   { path: '/easy_compressor', component: RouteCompressor },
