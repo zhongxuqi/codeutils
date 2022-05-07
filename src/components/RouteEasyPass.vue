@@ -93,6 +93,12 @@
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     我们出于不同的目的使用各种Cookie，包括：严格必要型Cookie、性能Cookie、营销Cookie和功能Cookie。 某些Cookie可能由外部第三方提供，以向我们的产品提供其它功能。 我们不会将 Cookie 用于本政策所述目的之外的任何用途。您可根据自己的偏好管理或删除 Cookie。 您可以清除计算机上或手机中保存的所有 Cookie，大部分网络浏览器都设有阻止或禁用 Cookie 的功能， 您可对浏览器进行配置。阻止或禁用 Cookie 功能后，可能影响您使用或不能充分使用我们的产品和服务。 
   </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
+    五、如何注销用户
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
+    用户自身意愿而发起的账号强制注销申请，可以通过以下方式进行注销：发送邮件到easypass.inc@gmail.com，或者在app左侧边栏选择反馈并提交申请，留下联系方式。我们客服人员会联系您核实并启动账户注销流程，5个工作日即可完成注销。
+  </div>
   </div>
 </template>
 
