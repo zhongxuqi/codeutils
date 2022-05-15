@@ -37,6 +37,7 @@ import RouteEasyNoteVivo from './components/RouteEasyNoteVivo'
 import RouteEasyNoteHuawei from './components/RouteEasyNoteHuawei'
 import RouteEasyNoteEn from './components/RouteEasyNoteEn'
 import RouteEasyPass from './components/RouteEasyPass'
+import RouteEasyPassHuawei from './components/RouteEasyPassHuawei'
 import RouteIPFSPass from './components/RouteIPFSPass'
 import RouteCompressor from './components/RouteCompressor'
 import Route404 from './components/Route404'
@@ -75,6 +76,7 @@ const routes = [
   { path: '/easynote_huawei', component: RouteEasyNoteHuawei },
   { path: '/easynote_en', component: RouteEasyNoteEn },
   { path: '/easypass', component: RouteEasyPass },
+  { path: '/easypass_huawei', component: RouteEasyPassHuawei },
   { path: '/ipfspass', component: RouteIPFSPass },
   { path: '/easy_compressor', component: RouteCompressor },
   { path: '/404', component: Route404},
