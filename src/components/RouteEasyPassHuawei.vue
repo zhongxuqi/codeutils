@@ -19,16 +19,19 @@
     二、我们如何使用用户相机权限；
    </div>
    <div data-v-ad817de0="">
-    三、我们如何存储和保护您的个人信息；
+    三、我们如何使用用户Android ID；
    </div>
    <div data-v-ad817de0="">
-    四、我们如何共享、转让、公开披露您的个人信息；
+    四、我们如何存储和保护您的个人信息；
    </div>
    <div data-v-ad817de0="">
-     五、我们如何使用 Cookie 和其他追踪技术； 
+    五、我们如何共享、转让、公开披露您的个人信息；
    </div>
    <div data-v-ad817de0="">
-     六、如何注销用户；
+     六、我们如何使用 Cookie 和其他追踪技术； 
+   </div>
+   <div data-v-ad817de0="">
+     七、如何注销用户；
    </div>
    <!---->
   </div>
@@ -51,7 +54,15 @@
   </div>
   <!---->
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    三、我们如何存储和保护您的个人信息 
+    三、我们如何使用用户Android ID；
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
+    产品会根据AndroidID来定位用户的使用习惯，并且根据使用习惯来调整和优化产品的功能。
+   <!---->
+  </div>
+  <!---->
+  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
+    四、我们如何存储和保护您的个人信息 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     作为一般规则，我们仅在实现信息收集目的所需的时间内保留您的个人信息。 我们会在对于管理与您之间的关系严格必要的时间内保留您的个人信息 （例如，当您开立帐户，从我们的产品获取服务时）。 出于遵守法律义务或为证明某项权利或合同满足适用的诉讼时效要求的目的， 我们可能需要在上述期限到期后保留您存档的个人信息，并且无法按您的要求删除。 
@@ -63,7 +74,7 @@
   </div>
   <!---->
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    四、我们如何共享、转让、公开披露您的个人信息 
+    五、我们如何共享、转让、公开披露您的个人信息 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     在管理我们的日常业务活动所需要时，为追求合法利益以更好地服务客户， 我们将合规且恰当的使用您的个人信息。出于对业务和各个方面的综合考虑， 我们仅自身使用这些数据，不与任何第三方分享。 
@@ -99,7 +110,7 @@
    </div>
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    五、我们如何使用 Cookie 和其他追踪技术 
+    六、我们如何使用 Cookie 和其他追踪技术 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     为确保产品正常运转，我们会在您的计算机或移动设备上存储名为 Cookie 的小数据文件。 Cookie 通常包含标识符、产品名称以及一些号码和字符。 借助于 Cookie，我们能够存储您的偏好或商品等数据，并用以判断注册用户是否已经登录， 提升服务和产品质量及优化用户体验。 
@@ -108,7 +119,7 @@
     我们出于不同的目的使用各种Cookie，包括：严格必要型Cookie、性能Cookie、营销Cookie和功能Cookie。 某些Cookie可能由外部第三方提供，以向我们的产品提供其它功能。 我们不会将 Cookie 用于本政策所述目的之外的任何用途。您可根据自己的偏好管理或删除 Cookie。 您可以清除计算机上或手机中保存的所有 Cookie，大部分网络浏览器都设有阻止或禁用 Cookie 的功能， 您可对浏览器进行配置。阻止或禁用 Cookie 功能后，可能影响您使用或不能充分使用我们的产品和服务。 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    六、如何注销用户
+    七、如何注销用户
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     用户自身意愿而发起的账号强制注销申请，可以通过以下方式进行注销：发送邮件到easypass.inc@gmail.com，或者在app左侧边栏选择反馈并提交申请，留下联系方式。我们客服人员会联系您核实并启动账户注销流程，5个工作日即可完成注销。
