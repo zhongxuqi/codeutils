@@ -32,6 +32,7 @@ import 'codemirror/theme/idea.css'
 import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
 import RouteScratchPaper from './components/RouteScratchPaper'
+import RouteScratchPaperNew from './components/RouteScratchPaperNew'
 import RouteEasyNote from './components/RouteEasyNote'
 import RouteEasyNoteVivo from './components/RouteEasyNoteVivo'
 import RouteEasyNoteHuawei from './components/RouteEasyNoteHuawei'
@@ -71,6 +72,7 @@ const routes = [
   { path: '/time*', component: RouteTime },
   { path: '/diff*', component: RouteDiff },
   { path: '/scratch_paper', component: RouteScratchPaper },
+  { path: '/scratch_paper_new', component: RouteScratchPaperNew },
   { path: '/easynote', component: RouteEasyNote },
   { path: '/easynote_vivo', component: RouteEasyNoteVivo },
   { path: '/easynote_huawei', component: RouteEasyNoteHuawei },
