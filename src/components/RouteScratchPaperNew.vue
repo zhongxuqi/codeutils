@@ -19,10 +19,13 @@
     二、我们如何存储和保护您的个人信息；
    </div>
    <div data-v-ad817de0="">
-    三、我们如何共享、转让、公开披露您的个人信息；
+    三、我们如何使用用户Android ID；
    </div>
    <div data-v-ad817de0="">
-     四、我们如何使用 Cookie 和其他追踪技术； 
+    四、我们如何共享、转让、公开披露您的个人信息；
+   </div>
+   <div data-v-ad817de0="">
+    五、我们如何使用 Cookie 和其他追踪技术； 
    </div>
    <!---->
   </div>
@@ -49,7 +52,15 @@
   </div>
   <!---->
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    三、我们如何共享、转让、公开披露您的个人信息 
+    三、我们如何使用用户Android ID；
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
+    产品会根据AndroidID来定位用户的使用习惯，并且根据使用习惯来调整和优化产品的功能。
+   <!---->
+  </div>
+  <!---->
+  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
+    四、我们如何共享、转让、公开披露您的个人信息 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     在管理我们的日常业务活动所需要时，为追求合法利益以更好地服务客户， 我们将合规且恰当的使用您的个人信息。出于对业务和各个方面的综合考虑， 我们仅自身使用这些数据，不与任何第三方分享。 
@@ -85,7 +96,7 @@
    </div>
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    四、我们如何使用 Cookie 和其他追踪技术 
+    五、我们如何使用 Cookie 和其他追踪技术 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     为确保产品正常运转，我们会在您的计算机或移动设备上存储名为 Cookie 的小数据文件。 Cookie 通常包含标识符、产品名称以及一些号码和字符。 借助于 Cookie，我们能够存储您的偏好或商品等数据，并用以判断注册用户是否已经登录， 提升服务和产品质量及优化用户体验。 
