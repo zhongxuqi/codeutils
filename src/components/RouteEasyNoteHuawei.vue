@@ -27,6 +27,9 @@
    <div data-v-ad817de0="">
     五、我们如何使用 Cookie 和其他追踪技术；
    </div>
+   <div data-v-ad817de0="">
+    六、我们如何使用存储权限；
+   </div>
    <!---->
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
@@ -103,6 +106,12 @@
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     我们出于不同的目的使用各种Cookie，包括：严格必要型Cookie、性能Cookie、营销Cookie和功能Cookie。 某些Cookie可能由外部第三方提供，以向我们的产品提供其它功能。 我们不会将 Cookie 用于本政策所述目的之外的任何用途。您可根据自己的偏好管理或删除 Cookie。 您可以清除计算机上或手机中保存的所有 Cookie，大部分网络浏览器都设有阻止或禁用 Cookie 的功能， 您可对浏览器进行配置。阻止或禁用 Cookie 功能后，可能影响您使用或不能充分使用我们的产品和服务。 
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
+    六、我们如何使用存储权限；
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
+    用户可以在本产品中保存已经编辑的文件。因此，我们需要利用存储权限将用户的文件存储在用户的手机存储中。
   </div>
   </div>
 </template>
