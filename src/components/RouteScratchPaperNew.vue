@@ -13,57 +13,39 @@
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     本隐私政策帮助您了解以下内容： 
    <div data-v-ad817de0="" class="mt-2">
-    一、我们如何收集和使用您的个人信息；
+    一、我们的APP账号管理和用户个人信息；
    </div>
    <div data-v-ad817de0="">
-    二、我们如何存储和保护您的个人信息；
+    二、我们如何使用用户Android ID；
    </div>
    <div data-v-ad817de0="">
-    三、我们如何使用用户Android ID；
+    三、我们如何共享、转让、公开披露您的个人信息；
    </div>
    <div data-v-ad817de0="">
-    四、我们如何共享、转让、公开披露您的个人信息；
+    四、我们如何使用存储权限；
    </div>
    <div data-v-ad817de0="">
-    五、我们如何使用 Cookie 和其他追踪技术； 
-   </div>
-   <div data-v-ad817de0="">
-    六、我们如何使用存储权限；
+    五、我们所需的APP权限和用途说明；
    </div>
    <!---->
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    一、我们如何收集和使用您的个人信息 
+    一、我们的APP账号管理和用户个人信息；
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    个人信息是指以电子或者其他方式记录的能够单独或者与其他信息， 结合识别特定自然人身份或者反映特定自然人活动情况的各种信息。 我们根据《中华人民共和国网络安全法》和《信息安全技术个人信息安全规范》（GB/T 35273-2017） 以及其它相关法律法规的要求，并严格遵循正当、合法、必要的原则， 出于您使用我们提供的服务和/或产品等过程中而收集和使用您的个人信息，包括但不限于电话号码等。 
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    为接受我们全面的产品服务，您应首先注册一个用户账号，我们将通过它记录相关的数据。 您所提供的所有信息均来自于您本人在注册时提供的数据。 您准备使用的账户名、密码、您本人的联系方式， 我们可能通过发短信或者邮件的方式来验证您的身份是否有效。 
+    我们不会以任何形式和目的收集任何用户个人信息，我们只使用设备ID作为用户账号。因此用户无须注册即可使用我们的产品和服务，不用担心个人信息的泄露问题。
   </div>
   <!---->
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    二、我们如何存储和保护您的个人信息 
+    二、我们如何使用用户Android ID；
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    作为一般规则，我们仅在实现信息收集目的所需的时间内保留您的个人信息。 我们会在对于管理与您之间的关系严格必要的时间内保留您的个人信息 （例如，当您开立帐户，从我们的产品获取服务时）。 出于遵守法律义务或为证明某项权利或合同满足适用的诉讼时效要求的目的， 我们可能需要在上述期限到期后保留您存档的个人信息，并且无法按您的要求删除。 
-   <span data-v-ad817de0=""> 当您的个人信息对于我们的法定义务或法定时效对应的目的或档案不再必要时， 我们确保将其完全删除或匿名化。 </span>
-   <!---->
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    我们使用符合业界标准的安全防护措施保护您提供的个人信息，并加密其中的关键数据， 防止其遭到未经授权访问、公开披露、使用、修改、损坏或丢失。我们会采取一切合理可行的措施，保护您的个人信息。 我们会使用加密技术确保数据的保密性；我们会使用受信赖的保护机制防止数据遭到恶意攻击。 
-  </div>
-  <!---->
-  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    三、我们如何使用用户Android ID；
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    产品会根据AndroidID来定位用户的使用习惯，并且根据使用习惯来调整和优化产品的功能。
+    产品会以AndroidID作为用户的账户，并以此来定位用户的使用习惯，并且根据使用习惯来调整和优化产品的功能。同时用户也能用AndroidID作为账户来进行支付。
    <!---->
   </div>
   <!---->
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    四、我们如何共享、转让、公开披露您的个人信息 
+    三、我们如何共享、转让、公开披露您的个人信息 
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     在管理我们的日常业务活动所需要时，为追求合法利益以更好地服务客户， 我们将合规且恰当的使用您的个人信息。出于对业务和各个方面的综合考虑， 我们仅自身使用这些数据，不与任何第三方分享。 
@@ -99,19 +81,19 @@
    </div>
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    五、我们如何使用 Cookie 和其他追踪技术 
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    为确保产品正常运转，我们会在您的计算机或移动设备上存储名为 Cookie 的小数据文件。 Cookie 通常包含标识符、产品名称以及一些号码和字符。 借助于 Cookie，我们能够存储您的偏好或商品等数据，并用以判断注册用户是否已经登录， 提升服务和产品质量及优化用户体验。 
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
-    我们出于不同的目的使用各种Cookie，包括：严格必要型Cookie、性能Cookie、营销Cookie和功能Cookie。 某些Cookie可能由外部第三方提供，以向我们的产品提供其它功能。 我们不会将 Cookie 用于本政策所述目的之外的任何用途。您可根据自己的偏好管理或删除 Cookie。 您可以清除计算机上或手机中保存的所有 Cookie，大部分网络浏览器都设有阻止或禁用 Cookie 的功能， 您可对浏览器进行配置。阻止或禁用 Cookie 功能后，可能影响您使用或不能充分使用我们的产品和服务。 
-  </div>
-  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
-    六、我们如何使用存储权限；
+    四、我们如何使用存储权限；
   </div>
   <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
     用户可以在本产品中保存已经编辑的文件。因此，我们需要利用存储权限将用户的文件存储在用户的手机存储中。
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2  text-h6 mb-4">
+    五、我们所需的APP权限和用途说明；
+  </div>
+  <div data-v-ad817de0="" class="ml-6 mr-2 text-body-1 mb-4" style="text-indent: 2em;">
+    <p>1. 相册和相机。主要用于用户可以在打草稿的时候导入图片进行编辑。</p>
+    <p>2. 读取移动网络信息。主要用于用户提交反馈等操作的时候判断网络是否畅通。</p>
+    <p>3. 修改或删除存储卡中的内容。主要用于保存草稿文件。</p>
+    <p>4. 读取存储卡中的内容。主要用于读取草稿文件，继续进行编辑。</p>
   </div>
   </div>
 </template>
