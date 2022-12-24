@@ -31,6 +31,7 @@ import VueResource from 'vue-resource'
 import 'codemirror/theme/idea.css'
 import RouteTime from './components/RouteTime'
 import RouteDiff from './components/RouteDiff'
+import RouteDrawArt from './components/RouteDrawArt'
 import RouteScratchPaper from './components/RouteScratchPaper'
 import RouteScratchPaperNew from './components/RouteScratchPaperNew'
 import RouteEasyNote from './components/RouteEasyNote'
@@ -72,6 +73,7 @@ const routes = [
   { path: '/golang*', component: RouteGolang },
   { path: '/time*', component: RouteTime },
   { path: '/diff*', component: RouteDiff },
+  { path: '/drawart', component: RouteDrawArt },
   { path: '/scratch_paper', component: RouteScratchPaper },
   { path: '/scratch_paper_new', component: RouteScratchPaperNew },
   { path: '/easynote', component: RouteEasyNote },
