@@ -26,6 +26,8 @@
 <script>
 import Language from '../utils/language'
 
+let Diff = window.Diff
+
 export default {
   name: 'RouterDiff',
   data: function() {

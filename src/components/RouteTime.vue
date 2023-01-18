@@ -39,6 +39,8 @@
 <script>
 import Language from '../utils/language'
 
+let moment = window.moment
+
 export default {
   name: 'RouterTime',
   components: {
